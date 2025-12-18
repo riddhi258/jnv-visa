@@ -968,8 +968,8 @@
 
 /* Contact Section */
 .contact {
-  padding: 15px;
-  background-color:white;
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--bg-secondary);
 }
 
 /* [data-theme="dark"] .section_card {
@@ -1091,8 +1091,12 @@
   gap: 2rem;
 }
 
+.consultation_section {
+  padding: 15px;
+  background-color:white;
+}
 .consult_card {
-  background: #fff;
+  background: white;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   overflow: hidden;
@@ -1132,7 +1136,7 @@
 .consult_card .btn {
   display: inline-block;
   padding: 0.7rem 1.8rem;
-  background-color: #4fc3d0;
+  background-color: var(--primary-green);
   color: #fff;
   border-radius: 25px;
   text-decoration: none;
