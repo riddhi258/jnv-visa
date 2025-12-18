@@ -1466,6 +1466,10 @@
   background-color: #1e293b; /* dark slate */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
+[data-theme="dark"] .contact {
+  background-color: #1e293b; /* dark slate */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
 
 /* Headings & text → white */
 [data-theme="dark"] .section_card h4,
