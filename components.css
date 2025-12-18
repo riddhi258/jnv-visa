@@ -1095,6 +1095,10 @@
   padding: 15px;
   background-color:white;
 }
+[data-theme="dark"] .consultation_section {
+  background-color: #1e293b; /* dark slate */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
 .consult_card {
   background: white;
   border-radius: 8px;
