@@ -1158,7 +1158,7 @@
   }
 }
 
-[data-theme="dark"] .consultation_section {
+[data-theme="dark"] .consultation_section, .consultation_card {
   background-color: #1e293b; /* dark slate */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
