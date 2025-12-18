@@ -972,10 +972,10 @@
   background-color:white;
 }
 
-[data-theme="dark"] .section_card {
-  background-color: #1e293b; /* dark slate */
+/* [data-theme="dark"] .section_card {
+  background-color: #1e293b; 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-}
+} */
 
 
 .contact-content {
