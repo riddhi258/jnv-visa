@@ -1728,16 +1728,16 @@
   font-weight: 600;
   color: var(--text-primary);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  gap: 1rem;
 }
 
 /* Arrow Icon */
 .faq-icon {
   width: 32px;
   height: 32px;
-  min-width: 32px; /* 🔴 IMPORTANT */
+  min-width: 32px;        /* 🔒 layout lock */
   border-radius: 50%;
   background-color: #eafaf1;
   display: flex;
@@ -1769,7 +1769,7 @@
 }
 
 .faq-item.active .faq-icon {
-  transform: rotate(90deg) scale(1.2); /* ✅ scale instead */
+  transform: rotate(90deg) scale(1.15); /* ✅ scale instead */
   background-color: var(--primary-green);
   color: #fff;
 }
