@@ -1703,10 +1703,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  align-items: start; /* 🔥 THIS FIXES EVERYTHING */
 }
 
 /* FAQ Item */
 .faq-item {
+  height: fit-content;
   background-color: var(--bg-primary);
   border-radius: 14px;
   border: 1px solid var(--border-color);
