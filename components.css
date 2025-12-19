@@ -1137,22 +1137,11 @@
   margin: 1rem 0 1.5rem;
 }
 
-[data-theme="dark"] .consult_card {
-  background-color: #1e293b;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-}
-
-[data-theme="dark"] .consult_card p {
+[data-theme="dark"] .consult_card p,
+[data-theme="dark"] .consult_card h4{
   color: #ffffff;
 }
 
-[data-theme="dark"] .consult_card h4 {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .consult_card h5 {
-  color: var(--primary-green);
-}
 
 .consult_card .btn {
   width: 45%;
