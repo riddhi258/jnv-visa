@@ -1138,13 +1138,15 @@
 }
 
 .consult_card .btn {
-  display: inline-block;
-  padding: 0.7rem 1.8rem;
+  width: 100%;
   background-color: var(--primary-green);
-  color: #fff;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 500;
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
 .consult_card .btn:hover {
