@@ -1702,16 +1702,13 @@
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  align-items: start; /* 🔥 THIS FIXES EVERYTHING */
-  grid-auto-rows: min-content;
+  gap: 24px;
+  align-items: flex-start; 
 }
-
 
 /* FAQ Item */
 .faq-item {
   height: fit-content; 
-  align-self: start; 
   background-color: var(--bg-primary);
   border-radius: 14px;
   border: 1px solid var(--border-color);
