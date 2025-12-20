@@ -1855,19 +1855,31 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
 
 /* Buttons */
 .primary-btn {
-  display: inline-block;
-  padding: 0.7rem 1.6rem;
+  width: 45%;
   background-color: var(--primary-green);
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  display: block;
+  margin: 0 auto;
 }
 
 .primary-btn.outline {
-  background: transparent;
-  border: 2px solid var(--primary-green);
-  color: var(--primary-green);
+   width: 45%;
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  display: block;
+  margin: 0 auto;
 }
 
 /* Responsive */
