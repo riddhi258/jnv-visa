@@ -1721,6 +1721,11 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
 }
 
 /* Question */
+
+[data-theme="dark"] .faq-question {
+  border-color: #ffffff;
+}
+
 .faq-question {
   width: 100%;
   background: none;
