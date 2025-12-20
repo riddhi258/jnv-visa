@@ -1767,7 +1767,7 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
 }
 
 [data-theme="dark"] .faq-question {
-  border-color: #ffffff;
+ color: #ffffff;
 }
 /* Mobile */
 @media (max-width: 768px) {
