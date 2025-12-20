@@ -1681,44 +1681,36 @@
 }
 
 /* FAQ Section */
-.faq{
-  padding: 15px;
-  background-color: var(--bg-secondary);
-}
-.faq-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 3rem 1rem;
+.faq-container {
+  width: 100%;
 }
 
-.faq-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
+/* Columns */
+.faq-left,
+.faq-right {
+  width: 48%;
+  float: left;
 }
 
-/* FAQ Grid */
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  align-items: start;
+.faq-right {
+  float: right;
 }
+
+/* Clearfix */
+.clearfix {
+  clear: both;
+}
+
 /* FAQ Item */
 .faq-item {
-  align-self: start;
   background-color: var(--bg-primary);
   border-radius: 14px;
   border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
   overflow: hidden;
 }
 
-.faq-item:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* Question Button */
+/* Question */
 .faq-question {
   width: 100%;
   background: none;
@@ -1726,14 +1718,13 @@
   padding: 1.2rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
 }
 
-/* Arrow Icon */
+/* Icon */
 .faq-icon {
   width: 32px;
   height: 32px;
@@ -1743,7 +1734,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  transition: transform 0.3s ease, background 0.3s;
+  transition: transform 0.3s ease;
 }
 
 /* Answer */
@@ -1754,13 +1745,7 @@
   transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
-.faq-answer p {
-  margin: 0;
-  padding-bottom: 1rem;
-  color: var(--text-secondary);
-}
-
-/* Active State */
+/* Active */
 .faq-item.active .faq-answer {
   max-height: 200px;
   padding-top: 0.5rem;
@@ -1768,23 +1753,15 @@
 
 .faq-item.active .faq-icon {
   transform: rotate(90deg);
-  background-color: var(--primary-green);
-  color: #fff;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  .faq-grid {
-    grid-template-columns: 1fr;
+  .faq-left,
+  .faq-right {
+    width: 100%;
+    float: none;
   }
-
-  .faq-title {
-    font-size: 1.8rem;
-  }
-}
-
-[data-theme="dark"] .faq-icon {
-  background-color: white;
-  color: #a0aec0;
 }
 
 

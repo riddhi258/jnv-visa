@@ -340,22 +340,14 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-document.querySelectorAll(".faq-question").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const item = btn.parentElement;
-
-    document.querySelectorAll(".faq-item").forEach((faq) => {
-      if (faq !== item) {
-        faq.classList.remove("active");
-      }
-    });
-
-    item.classList.toggle("active");
-  });
-});
 
 // faq section - toggle answers
-
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.parentElement;
+      item.classList.toggle("active");
+    });
+  });
 
 
 // Apply debouncing to scroll-heavy functions
