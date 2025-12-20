@@ -1854,7 +1854,7 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
 }
 
 /* Buttons */
-.primary-btn {
+ .user-card .primary-btn {
   width: 45%;
   background-color: var(--primary-green);
   color: var(--white);
@@ -1867,15 +1867,12 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   display: block;
   margin: 0 auto;
 }
-.primary-btn:hover {
+
+
+.user-card .primary-btn:hover {
   background-color: var(--primary-green-dark);
 }
-
-.primary-btn.outline:hover {
-  background-color: var(--bg-primary);
-}
-
-.primary-btn.outline {
+ .user-card .primary-btn-outline {
   width: 45%;
   background-color: var(--primary-green);
   color: var(--white);
@@ -1889,6 +1886,10 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   margin: 0 auto;
 }
 
+
+.user-card .primary-btn-outline:hover {
+  background-color: var(--primary-green-dark);
+}
 /* Responsive */
 @media (max-width: 768px) {
   .user-cards {
