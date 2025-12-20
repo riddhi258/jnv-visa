@@ -1160,7 +1160,7 @@
 
 
 .consult_card .btn:hover {
-  background-color: #38aab7;
+  background-color: var(--primary-green-dark);
 }
 @media (max-width: 1024px) {
   .section_grid {
@@ -1867,9 +1867,16 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   display: block;
   margin: 0 auto;
 }
+.primary-btn:hover {
+  background-color: var(--primary-green-dark);
+}
+
+.primary-btn.outline:hover {
+  background-color: var(--bg-primary);
+}
 
 .primary-btn.outline {
-   width: 45%;
+  width: 45%;
   background-color: var(--primary-green);
   color: var(--white);
   border: none;
