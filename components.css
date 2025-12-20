@@ -969,7 +969,7 @@
 /* Contact Section */
 .contact {
   padding: var(--spacing-3xl) 0;
-  background-color: var(--bg-secondary);
+  background-color: white;
 }
 
 /* [data-theme="dark"] .section_card {
@@ -1779,6 +1779,104 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   }
 }
 
+/* jobseeker and employer  */
+.user-section {
+  padding: 4rem 1rem;
+  background-color: var(--bg-secondary);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-secondary);
+}
+
+/* Cards Layout */
+.user-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.user-card {
+  background-color: var(--bg-primary);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image */
+.user-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+}
+
+/* Text */
+.user-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
+
+.user-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.user-card ul {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.user-card ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.primary-btn {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  background-color: var(--primary-green);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.primary-btn.outline {
+  background: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 /* Footer */
 .footer {
