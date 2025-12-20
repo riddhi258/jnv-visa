@@ -1681,6 +1681,16 @@
 }
 
 /* FAQ Section */
+.faq {
+  padding: 15px;
+  background-color: var(--bg-secondary);
+}
+.faq-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
 .faq-container {
 max-width: 1200px; margin: auto; padding: 3rem 1rem;
 }
