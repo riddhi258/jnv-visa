@@ -1690,9 +1690,8 @@
   font-weight: 700;
   margin-bottom: 2rem;
   color: var(--text-primary);
-  align-items: center;
 }
-.faq-container {
+.faq-section {
 max-width: 1200px; margin: auto; padding: 3rem 1rem;
 }
 
