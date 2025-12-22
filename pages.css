@@ -168,20 +168,9 @@
   transform: scaleX(1);
 }
 
-.category-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--spacing-lg);
-}
-
-.category-icon i {
-  font-size: var(--font-size-xl);
-  color: var(--white);
+.category-icon i{
+  font-size: 42px;        
+  transition: color 0.3s ease;
 }
 
 .category-card h3 {
