@@ -184,14 +184,19 @@
   color: var(--white);
 }
 .category-card .category-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
 }
 
 .category-card .category-icon i {
-  font-size: 42px;        
-  color: white;
+  font-size: var(--font-size-3xl);
+  color: var(--white);
 }
 
 .category-card h3 {
