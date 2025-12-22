@@ -14,7 +14,6 @@
   background: linear-gradient(135deg, var(--primary-blue-dark), var(--secondary-blue));
 }
 
-
 .page-header::before {
   content: '';
   position: absolute;
@@ -197,20 +196,6 @@
 .category-features {
   list-style: none;
   margin-bottom: var(--spacing-xl);
-}
-
-.category-icon {
-  font-size: 2.6rem;
-  padding: 0.8rem;
-  color: white;
-  background-color: var(--bg-light);
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
-  border-radius: 30%;
-  margin: 0 auto 1.2rem;
-  display: flex;
-  transition: all 0.35s ease;
 }
 
 .category-features li {

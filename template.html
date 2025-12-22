@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="@yield('canonical', url()->current())" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Shreyash Srivastva" />
+    <meta name="publisher" content="JobsNVisa" />
+    <meta name="copyright" content="JobsNVisa" />
+    <meta
+      name="description"
+      content="JobsNVisa - Your Gateway to Career Excellence in Australia. Connect with top employers across Australia's fastest-growing industries. We bridge the gap between talent and opportunity with personalised visa and employment solutions."
+    />
+    <title>JobsNVisa - Your Gateway to Career Excellence</title>
+    <meta
+      name="keywords"
+      content="JobsNVisa, Job Placement, Visa Assistance, Career Opportunities, Australia Jobs, Skilled Migration, Employment Services, Aged Care Jobs, NDIS Jobs, Healthcare Jobs, IT Jobs, Construction Jobs, Child Care Jobs, Residential Care Jobs, Retail Jobs"
+    />
+    <link rel="canonical" href="@yield('canonical', url()->current())" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Shreyash Srivastva" />
+    <meta name="publisher" content="JobsNVisa" />
+    <meta name="copyright" content="JobsNVisa" />
+
+    <link rel="icon" type="image/png/svg" href="favicon.svg" />
+    <link rel="shortcut icon" type="image/png/svg" href="favicon.svg" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="components.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#home">
+            <img src="dark.svg" width="300" height="auto" alt="JobsNVisa Logo" class="logo-image" />
+          </a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#industries" class="nav-link">Industries</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#benefits" class="nav-link">Benefits</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <div class="hero-shape"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-buttons"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Job Seeker Modal -->
+    <div class="modal" id="jobSeekerModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Find Your Dream Job</h2>
+          <button class="modal-close" id="closeJobSeekerModal" title="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Join thousands of professionals who have found their perfect career
+            through JobsNVisa
+          </p>
+          <form class="job-form" id="jobSeekerForm">
+            <div class="form-group">
+              <input type="text" id="seekerName" name="name" required />
+              <label for="seekerName">Full Name</label>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="seekerPhone" name="phone" required />
+              <label for="seekerPhone">Contact Number</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="seekerEmail" name="email" required />
+              <label for="seekerEmail">Email Address</label>
+            </div>
+            <div class="form-group">
+              <select id="seekerIndustry" name="industry" required>
+                <option value="">Select Preferred Industry</option>
+                <option value="aged-care">Aged Care</option>
+                <option value="ndis">NDIS</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="construction">Construction</option>
+                <option value="it-engineering">IT & Engineering</option>
+                <option value="residential-care">Residential Care</option>
+                <option value="retail">Retail</option>
+                <option value="child-care">Child Care</option>
+              </select>
+              <label for="seekerIndustry">Preferred Industry</label>
+            </div>
+            <div class="form-group file-upload">
+              <input
+                type="file"
+                id="seekerResume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                required
+              />
+              <label for="seekerResume" class="file-label"
+                >Upload Resume (PDF, DOC, DOCX)
+                <i class="fas fa-cloud-upload-alt"><span></span></i>
+              </label>
+              <div class="file-info" id="resumeInfo"></div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary btn-submit">
+              <i class="fas fa-rocket"></i>
+              Start My Career Journey
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Job Modal -->
+    <div class="modal" id="postJobModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Post a Job</h2>
+          <button class="modal-close" id="closePostJobModal" title="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Find the perfect candidates for your organisation through our
+            extensive network
+          </p>
+
+          <form class="job-form" id="postJobForm">
+            <div class="form-group">
+              <input type="text" id="companyName" name="company" required />
+              <label for="companyName">Company Name</label>
+            </div>
+            <div class="form-group">
+              <input type="text" id="jobTitle" name="title" required />
+              <label for="jobTitle">Job Title</label>
+            </div>
+            <div class="form-group">
+              <textarea
+                id="jobDescription"
+                name="description"
+                rows="4"
+                required
+              ></textarea>
+              <label for="jobDescription">Job Description</label>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" id="companyPhone" name="phone" required />
+                <label for="companyPhone">Contact Number</label>
+              </div>
+              <div class="form-group">
+                <input type="email" id="companyEmail" name="email" required />
+                <label for="companyEmail">Email Address</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <select id="jobIndustry" name="industry" required>
+                <option value="">Select Industry</option>
+                <option value="aged-care">Aged Care</option>
+                <option value="ndis">NDIS</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="construction">Construction</option>
+                <option value="it-engineering">IT & Engineering</option>
+                <option value="residential-care">Residential Care</option>
+                <option value="retail">Retail</option>
+                <option value="child-care">Child Care</option>
+              </select>
+              <label for="jobIndustry">Industry</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">
+              <i class="fas fa-bullhorn"></i>
+              Post Job Opening
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+      <div class="modal-content success-modal">
+        <div class="modal-body">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2>Success!</h2>
+          <p id="successMessage">
+            Your submission has been received successfully.
+          </p>
+          <button class="btn btn-primary" id="closeSuccessModal">
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <h3>JobsNVisa</h3>
+              <p>Your gateway to career excellence in Australia</p>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/profile.php?id=61579092253323&sk=about"
+                class="social-link"
+                title="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://au.linkedin.com/company/the-jobs-n-visa-pty-ltd?trk=public_post_feed-actor-image"
+                class="social-link"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://www.youtube.com/@JobsNVisa" class="social-link"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://www.instagram.com/jobsnvisa/" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.x.com/thejobsnvisa" class="social-link"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-twitter-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+          <!-- This is supposed to be a quick link section - use if requird
+           <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#industries">Industries</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>-->
+          <div class="footer-section">
+            <h4>Industries</h4>
+            <ul class="footer-links">
+              <li><a href="aged-care.html">Aged Care</a></li>
+              <li><a href="ndis.html">NDIS</a></li>
+              <li><a href="healthcare.html">Healthcare</a></li>
+              <li><a href="construction.html">Construction</a></li>
+              <li><a href="it-engineering.html">IT & Engineering</a></li>
+              <li>
+                <a href="residential-care.html">Residential Care</a>
+              </li>
+              <li><a href="retail.html">Retail</a></li>
+              <li><a href="child-care.html">Child Care</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul class="footer-links">
+              <li><a href="help-center.html">Help Center</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li>
+                <a href="terms-of-service.html">Terms of Service</a>
+              </li>
+              <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+61387643335">+61 3 8764 3335</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@jobsnvisa.com.au">info@jobsnvisa.com.au</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sydney, Melbourne, Brisbane</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 JobsNVisa. All rights reserved.</p>
+            <p>Licensed Migration Agent | Registered Employment Services</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="darkmode.js"></script>
+    
+  </body>
+</html>

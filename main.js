@@ -340,7 +340,6 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-
 // faq section - toggle answers
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -348,7 +347,6 @@ function debounce(func, wait) {
       item.classList.toggle("active");
     });
   });
-
 
 // Apply debouncing to scroll-heavy functions
 window.addEventListener('scroll', debounce(updateActiveNavLink, 10));
