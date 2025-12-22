@@ -169,9 +169,8 @@
 }
 
 .category-icon {
-   position: absolute;
-  top: 15px;
-  left: 15px;
+  width: 60px;
+  height: 60px;
   background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
   border-radius: var(--radius-md);
   display: flex;
@@ -181,8 +180,6 @@
 }
 
 .category-icon i {
-  font-size: 42px;        
-  transition: color 0.3s ease;
   font-size: var(--font-size-xl);
   color: var(--white);
 }
