@@ -1455,20 +1455,6 @@
   gap: 15px;
   margin-top: 20px;
 }
-.section_card {
-  min-width: 100%;
-  padding: 30px;
-  text-align: center;
-}
-
-.section_card img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 15px auto;
-}
-
 
 .slider-controls button {
   background: #000;
