@@ -348,31 +348,29 @@ function debounce(func, wait) {
     });
   });
 // client tentimonials silder 
-const track = document.querySelector(".testimonial-track");
-  const slides = document.querySelectorAll(".section_card");
-  const nextBtn = document.getElementById("next");
-  const prevBtn = document.getElementById("prev");
+ const track = document.querySelector(".slider-track");
+  const slides = document.querySelectorAll(".slider-track .section_card");
 
   let index = 0;
 
-  function updateSlider() {
+  function slide() {
     track.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  nextBtn.addEventListener("click", () => {
+  document.getElementById("next").onclick = () => {
     index = (index + 1) % slides.length;
-    updateSlider();
-  });
+    slide();
+  };
 
-  prevBtn.addEventListener("click", () => {
+  document.getElementById("prev").onclick = () => {
     index = (index - 1 + slides.length) % slides.length;
-    updateSlider();
-  });
+    slide();
+  };
 
-  // Auto slide (optional)
+  // Auto slide
   setInterval(() => {
     index = (index + 1) % slides.length;
-    updateSlider();
-  }, 5000);
+    slide();
+  }, 4000);
 // Apply debouncing to scroll-heavy functions
 window.addEventListener('scroll', debounce(updateActiveNavLink, 10));
