@@ -1569,40 +1569,6 @@
 .section_card:hover .quote-icon i {
   color: #ffffff;        /* white on hover */
 }
-/* Slider wrapper */
-.testimonial-slider {
-  overflow: hidden;
-  width: 100%;
-}
-
-/* Override grid ONLY for slider */
-.section_grid.slider-track {
-  display: flex;              /* override grid */
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Each slide */
-.section_grid.slider-track .section_card {
-  min-width: 100%;            /* 1 card per slide */
-}
-.slider-controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.slider-controls button {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-  background: var(--primary-green);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-}
-
 /* ===============================
    DARK MODE – CLIENT TESTIMONIALS
    =============================== */
