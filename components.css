@@ -2221,3 +2221,58 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   margin: 0 auto;
   color: var(--white);
 }
+/* CTA Section */
+.cta-section {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+  color: var(--white);
+  text-align: center;
+}
+
+[data-theme="dark"] .cta-section {
+  background: linear-gradient(135deg, var(--primary-blue-dark), var(--secondary-blue));
+}
+
+.cta-content h2 {
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-content p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.9;
+  color: var(--white);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+  min-width: 150px;
+}
+
+.cta-buttons .btn-primary {
+  background-color: var(--white);
+  color: var(--primary-green);
+}
+
+.cta-buttons .btn-primary:hover {
+  background-color: var(--gray-100);
+  color: var(--primary-green-dark);
+}
+
+.cta-buttons .btn-secondary {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.cta-buttons .btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--primary-green);
+}
