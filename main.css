@@ -165,6 +165,24 @@ a:hover {
 }
 
 /* Buttons */
+.btn1 {
+  width: 50%;
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  display: block;
+  margin: 0 auto;
+}
+
+.btn1:hover {
+  background-color: var(--primary-green-dark);
+  color: #ffffff;
+}
 .btn {
   display: inline-flex;
   align-items: center;
