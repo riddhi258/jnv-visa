@@ -171,9 +171,8 @@ a:hover {
   display: block;
   width: fit-content;
   gap: 10px;
-  margin: auto;
+  margin: 0;
   padding: 8px 16px;
-  align-items: center;
   background: linear-gradient(
     135deg,
     var(--primary-green),
