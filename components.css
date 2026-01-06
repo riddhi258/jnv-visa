@@ -2276,4 +2276,37 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   background-color: var(--white);
   color: var(--primary-green);
 }
+/* Dark Theme – Migration Cards */
+[data-theme="dark"] .migration-card {
+  background-color: #1e293b; /* dark slate */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+[data-theme="dark"] .migration-cards-section {
+  background-color: #1e293b; /* dark slate */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+/* Card text */
+[data-theme="dark"] .migration-card h3 {
+  color: #f1f5f9;
+}
 
+[data-theme="dark"] .migration-card p {
+  color: #cbd5f5;
+}
+
+/* Image styling */
+[data-theme="dark"] .migration-card img {
+  filter: brightness(0.85) contrast(1.05);
+}
+
+/* Button */
+[data-theme="dark"] .migration-card .card-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #020617;
+}
+
+[data-theme="dark"] .migration-card .card-btn:hover {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
