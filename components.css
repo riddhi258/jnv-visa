@@ -873,8 +873,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--spacing-3xl);
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
   justify-content: center;
 
 }
@@ -1450,7 +1450,10 @@
 .section_container {
   max-width: 1200px;
   margin: auto;
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: var(--spacing-3xl);
   text-align: center;
 }
 
