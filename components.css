@@ -872,16 +872,16 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--spacing-xl);
-  padding-left: 20px;
-  padding-right: 20px;
+  gap: var(--spacing-3xl);
+  padding-left: 80px;
+  padding-right: 80px;
   justify-content: center;
 
 }
 
 .service-card {
   background-color: var(--bg-primary);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
@@ -1000,7 +1000,7 @@
 .contact-card {
   background-color: var(--bg-primary);
   padding: var(--spacing-xl);
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
   text-align: center;
@@ -1105,7 +1105,7 @@
 .consult_card {
   background: white;
   height:520px;
-  border-radius: 8px;
+  border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   overflow: hidden;
   padding-bottom: 2rem;
@@ -1117,7 +1117,7 @@
 }
 
 .consult_card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-3px);
 }
 
 .consult_card img {
@@ -1491,7 +1491,7 @@
   padding: 3.5rem 1.5rem 1.5rem; 
   min-height: 400px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 18px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
@@ -1879,7 +1879,7 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   color: var(--white);
   border: none;
   padding: var(--spacing-md);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-xl);
   font-weight: 600;
   cursor: pointer;
   transition: background-color var(--transition-fast);
