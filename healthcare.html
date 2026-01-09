@@ -755,7 +755,7 @@
         interaction: "high",
         employment: "full-time",
         salaryRange: "$180,000 - $280,000",
-        applyLink: ""
+        applyLink: "https://recruitcrm.io/apply/17674157690200124369Bba"
       },
 
       {
@@ -788,7 +788,40 @@
         interaction: "high",
         employment: "full-time",
         salaryRange: "$190,000 - $310,000",
-        applyLink: ""
+        applyLink: "https://recruitcrm.io/apply/17673478071830124369BIz"
+      },
+      {
+        id: 7,
+        title: "General Practitioner (Emergency Skills)",
+        category: "doctors",
+        categoryLabel: "Doctors & Specialists",
+        overview: "Provide primary medical care with advanced emergency response skills, particularly in rural, remote, and high-demand settings.",
+        icon: "fas fa-ambulance",
+        image: "assets/gp-emergency.jpg",
+        highDemand: true,
+        responsibilities: [
+          "Deliver comprehensive primary healthcare services",
+          "Manage emergency and trauma cases",
+          "Stabilize patients prior to specialist referral",
+          "Provide after-hours and on-call emergency care",
+          "Coordinate with hospitals and emergency services"
+        ],
+        qualifications: [
+          "Medical degree (MBBS or equivalent)",
+          "General Practice fellowship or equivalent",
+          "Advanced emergency skills certification",
+          "Medical board registration"
+        ],
+        skills: ["Emergency Response", "Primary Care", "Clinical Decision Making"],
+        workEnvironments: ["Hospital", "Rural Clinic", "Emergency Department"],
+        careerProgression: ["Senior GP", "Rural Emergency Specialist"],
+        patientImpact: "Critical frontline care, especially in emergency and remote healthcare settings",
+        setting: "hospital",
+        level: "advanced",
+        interaction: "high",
+        employment: "full-time",
+        salaryRange: "$200,000 - $350,000",
+        applyLink: "https://recruitcrm.io/apply/17670782324510124369uYG"
       },
       {
         id: 26,
@@ -1808,7 +1841,7 @@
       const profession = healthcareProfessions.find(p => p.id === professionId);
       if (profession) {
         const applyLink = profession.applyLink || '';
-        
+
         // Check if position is available
         if (!applyLink || applyLink.trim() === '') {
           // Position not available
@@ -1822,18 +1855,18 @@
           );
           return;
         }
-        
+
         // Position is available - show application details
         const contactEmail = 'info@jobsnvisa.com.au';
         const contactPhone = '+61387643334';
         const calendarLink = 'https://calendly.com/growmorerma/rma-initial-consultation-gm-community-clone';
-        
+
         const message = `Apply for ${profession.title}\n\n` +
           `URL:${applyLink}\n` +
           `Email: ${contactEmail}\n` +
-          `Phone: ${contactPhone}\n\n` +          
+          `Phone: ${contactPhone}\n\n` +
           `Click OK to open the application form`;
-        
+
         if (confirm(message)) {
           window.open(applyLink, '_blank');
         }
