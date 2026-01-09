@@ -1,391 +1,1619 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-DN7J3Q1XD8"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-DN7J3Q1XD8'); </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Shreyash Srivastva" />
-  <meta name="publisher" content="JobsNVisa" />
-  <meta name="copyright" content="JobsNVisa" />
-  <title>Healthcare Jobs - JobsNVisa</title>
-  <link rel="stylesheet" href="main.css" />
-  <link rel="stylesheet" href="components.css" />
-  <link rel="stylesheet" href="pages.css" />
-  <meta name="description"
-    content="Find healthcare jobs in Australia with Jobs N Visa. Explore roles in nursing, aged care, medical assistance, therapy services, and allied health across hospitals and clinics.">
-  <meta name="keywords"
-    content="healthcare jobs, nursing jobs Australia, aged care careers, medical assistant roles, therapy services, allied health jobs, patient care, hospital jobs, clinic jobs, Jobs N Visa, work in Australia">
-  <link rel="icon" type="image/png/svg" href="favicon.svg" />
-  <link rel="shortcut icon" type="image/png/svg" href="favicon.svg" />
-  <link canonical href="https://www.thejobsnvisa.com/healthcare.html" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Professionals - JobsNVisa</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="health.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Healthcare Professionals Specific Styles */
+        .healthcare-header {
+            background: linear-gradient(135deg, #22C55E, #86EFAC);
+            color: white;
+            padding: 6rem 3rem 1rem;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .healthcare-header {
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+        }
+
+        .healthcare-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .healthcare-header .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .healthcare-header .intro {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            color: white;
+        }
+
+        /* Search and Filter Section */
+        .search-filter-section {
+            background-color: var(--bg-secondary);
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .search-filter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .search-bar {
+            margin-bottom: 0.7rem;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .filters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            position: relative;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:focus {
+            border-color: var(--primary-green);
+            outline: none;
+        }
+
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .results-count {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .reset-filters {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-filters:hover {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        /* Profession Cards */
+        .professions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .profession-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            background-color: var(--bg-primary);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .profession-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .profession-card.reverse {
+            grid-template-columns: 1fr 300px;
+        }
+
+        .profession-image {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profession-image i {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .profession-content {
+            padding: 2rem;
+        }
+
+        .profession-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .profession-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .profession-category {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .profession-overview {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .profession-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-section h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .detail-section li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .detail-section li::before {
+            content: '•';
+            color: var(--primary-green);
+            position: absolute;
+            left: 0;
+        }
+
+        .profession-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .profession-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .action-btn.primary {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background-color: var(--primary-green-dark);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background-color: transparent;
+            color: var(--primary-green);
+            border: 1px solid var(--primary-green);
+        }
+
+        .action-btn.secondary:hover {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        /* High Demand Badge */
+        .high-demand-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #F59E0B, #F97316);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Loading and No Results */
+        .loading-state, .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .loading-state i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .healthcare-header h1 {
+                font-size: 2rem;
+            }
+
+            .healthcare-header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .search-filter-section {
+                position: static;
+            }
+
+            .filters-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profession-card,
+            .profession-card.reverse {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .profession-image {
+                height: 200px;
+            }
+
+            .profession-details {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .profession-actions {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                text-align: center;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for accessibility */
+        .search-input:focus,
+        .filter-select:focus,
+        .action-btn:focus {
+            outline: 2px solid var(--primary-green);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="index.html">
-          <img src="dark.svg" width="300" height="auto" alt="JobsNVisa Logo" class="logo-image" />
-        </a>
-      </div>
-          <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="jobs.html" class="nav-link">Careers</a></li>
-        <li><a href="recruiter.html" class="nav-link">Recruiters</a></li>
-        <li><a href="migration.html" class="nav-link">Migrate to Australia</a></li>        
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="resouces.html" class="nav-link">Insights</a></li>
-        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-        
-      </ul>
-      <div class="nav-controls">
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
-        </button>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Healthcare</span>
-      </div>
-      <h1>Healthcare Careers</h1>
-      <p>
-        Connecting skilled talent and top employers for professional
-        development opportunities
-      </p>
-    </div>
-  </section>
-
-  <!-- Industry Overview -->
-  <section class="industry-overview">
-    <div class="container">
-      <div class="overview-content">
-        <div class="overview-text">
-          <h2>Excellence in Healthcare Pathways</h2>
-          <p style="text-align: justify">
-            Australia's healthcare system is world-renowned for its quality
-            and accessibility, creating exceptional career opportunities for
-            healthcare professionals at all levels. From hospitals and clinics
-            to community health services and specialised care facilities, the
-            healthcare sector offers diverse pathways for professional growth
-            and meaningful impact.
-          </p>
-          <p style="text-align: justify">
-            With an aging population and increasing focus on preventive care,
-            healthcare professionals are in high demand across metropolitan
-            and regional areas. Our healthcare partners are leading providers
-            committed to excellence in patient care and staff development.
-          </p>
-
-          <div class="key-stats">
-            <div class="stat-item">
-              <div class="stat-number">3,200+</div>
-              <div class="stat-label">Available Positions</div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="dark.svg" width="300" height="auto" alt="JobsNVisa Logo" class="logo-image" /></a>
             </div>
-            <div class="stat-item">
-              <div class="stat-number">$32-55</div>
-              <div class="stat-label">Hourly Rate Range</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">96%</div>
-              <div class="stat-label">Job Satisfaction Rate</div>
-            </div>
-          </div>
-        </div>
-        <div class="overview-image">
-          <div class="image-placeholder">
-            <img src="Healthcare.jpg" alt="Healthcare Image" class="image-placeholder" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Job Categories -->
-  <section class="job-categories">
-    <div class="container">
-      <div class="section-header">
-        <h2>Healthcare Specialties</h2>
-        <p>Diverse career opportunities across all healthcare disciplines</p>
-      </div>
-      <div class="categories-grid">
-        <div class="category-card">
-          <div class="category-icon">
-            <i class="fas fa-user-md"></i>
-          </div>
-          <h3>Registered Nurses</h3>
-          <p style="text-align: justify">
-            Provide comprehensive nursing care across acute, community, and
-            specialised healthcare settings.
-          </p>
-          <ul class="category-features">
-            <li>Specialty training opportunities</li>
-            <li>Leadership development</li>
-            <li>Flexible work arrangements</li>
-          </ul>
-
-        </div>
-
-        <div class="category-card">
-          <div class="category-icon">
-            <i class="fas fa-heartbeat"></i>
-          </div>
-          <h3>Allied Health</h3>
-          <p style="text-align: justify">
-            Physiotherapy, occupational therapy, speech pathology, and other
-            allied health professions.
-          </p>
-          <ul class="category-features">
-            <li>Professional autonomy</li>
-            <li>Continuing education support</li>
-            <li>Multidisciplinary teams</li>
-          </ul>
-
-        </div>
-
-        <div class="category-card">
-          <div class="category-icon">
-            <i class="fas fa-hospital"></i>
-          </div>
-          <h3>Healthcare Assistants</h3>
-          <p style="text-align: justify">
-            Support healthcare teams in delivering quality patient care and
-            administrative services.
-          </p>
-          <ul class="category-features">
-            <li>Entry-level opportunities</li>
-            <li>On-the-job training</li>
-            <li>Career progression pathways</li>
-          </ul>
-
-        </div>
-
-        <div class="category-card">
-          <div class="category-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h3>Mental Health</h3>
-          <p style="text-align: justify">
-            Support individuals with mental health conditions through
-            counseling and therapeutic interventions.
-          </p>
-          <ul class="category-features">
-            <li>Specialised training provided</li>
-            <li>Professional supervision</li>
-            <li>Meaningful impact work</li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Healthcare Settings -->
-  <section class="healthcare-settings">
-    <div class="container">
-      <div class="section-header">
-        <h2>Where Your Career Flourishes</h2>
-        <p>Jobs N Visa Helping You Find Diverse Healthcare Opportunities</p>
-      </div>
-      <div class="settings-grid">
-        <div class="setting-item">
-          <div class="setting-icon">
-            <i class="fas fa-hospital-alt"></i>
-          </div>
-          <h3>Public Hospitals</h3>
-          <p>
-            Major tertiary hospitals, regional health services, and emergency
-            care facilities.
-          </p>
-        </div>
-
-        <div class="setting-item">
-          <div class="setting-icon">
-            <i class="fas fa-clinic-medical"></i>
-          </div>
-          <h3>Private Healthcare</h3>
-          <p>
-            Private hospitals, day surgery centers, and specialist medical
-            practices.
-          </p>
-        </div>
-
-        <div class="setting-item">
-          <div class="setting-icon">
-            <i class="fas fa-home-heart"></i>
-          </div>
-          <h3>Community Health</h3>
-          <p>
-            Community health centers, home nursing services, and primary
-            healthcare clinics.
-          </p>
-        </div>
-
-        <div class="setting-item">
-          <div class="setting-icon">
-            <i class="fas fa-user-injured"></i>
-          </div>
-          <h3>Rehabilitation</h3>
-          <p>
-            Rehabilitation hospitals, outpatient therapy centers, and recovery
-            services.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Requirements -->
-  <section class="requirements">
-    <div class="container">
-      <div class="section-header">
-        <h2>Professional Requirements</h2>
-        <p>
-          Essential qualifications and registration for healthcare careers
-        </p>
-      </div>
-      <div class="requirements-content">
-        <div class="requirements-grid">
-          <div class="requirement-item">
-            <div class="requirement-icon">
-              <i class="fas fa-certificate"></i>
-            </div>
-            <h3>Professional Registration</h3>
-            <ul>
-              <li>Professional indemnity insurance</li>
-              <li>AHPRA registration</li>
-              <li>Relevant qualifications</li>
-              <li>Ongoing professional development</li>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#industries" class="nav-link">Industries</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-          </div>
-
-          <div class="requirement-item">
-            <div class="requirement-icon">
-              <i class="fas fa-shield-virus"></i>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <h3>Health & Safety</h3>
-            <ul>
-              <li>Immunisation records up to date</li>
-              <li>Working with Children check</li>
-              <li>Police clearance certificate</li>
-              <li>Occupational health screening</li>
-            </ul>
-          </div>
+        </div>
+    </nav>
 
-          <div class="requirement-item">
-            <div class="requirement-icon">
-              <i class="fas fa-language"></i>
+    <!-- Header Section -->
+    <section class="healthcare-header">
+        <div class="container">
+            <h1>Healthcare Professionals</h1>
+            <!-- <p class="subtitle">Explore diverse healthcare opportunities across Australia's world-class medical system.</p> -->
+            <p class="intro">
+                Comprehensive Guide to Healthcare Careers in Australia
+            </p>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter-section">
+        <div class="search-filter-container">
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Search healthcare roles, specializations, or skills..."
+                        id="searchInput"
+                        aria-label="Search healthcare professions">
+                </div>
             </div>
-            <h3>Communication Skills</h3>
-            <ul>
-              <li>English proficiency (IELTS)</li>
-              <li>Strong interpersonal skills</li>
-              <li>Cultural competency</li>
-              <li>Documentation skills</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Shape the Future of Healthcare</h2>
-        <p>
-          Collaborate with us to find the best healthcare employers and
-          providers
-        </p>
-        <!-- <div class="cta-buttons">
-            <button class="btn btn-secondary btn-cta" id="jobSeekerBtn">Find Your Dream Job</button>
-            <button class="btn btn-primary btn-cta" id="postJobBtn">Post a Job</button>
-        </div> -->
-      </div>
-  </section>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <select class="filter-select" id="categoryFilter" aria-label="Filter by profession category">
+                        <option value="">All Categories</option>
+                        <option value="doctors">Doctors & Specialists</option>
+                        <option value="nurses">Nurses & Midwives</option>
+                        <option value="allied">Allied Health</option>
+                        <option value="technical">Lab & Technical</option>
+                        <option value="support">Support & Community</option>
+                    </select>
+                </div>
 
+                <div class="filter-group">
+                    <select class="filter-select" id="settingFilter" aria-label="Filter by work setting">
+                        <option value="">All Settings</option>
+                        <option value="hospital">Hospital</option>
+                        <option value="clinic">Clinic</option>
+                        <option value="aged-care">Aged Care</option>
+                        <option value="community">Community</option>
+                        <option value="laboratory">Laboratory</option>
+                        <option value="home-care">Home Care</option>
+                    </select>
+                </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo">
-            <h3>JobsNVisa</h3>
-            <p>Your gateway to career excellence in Australia</p>
-          </div>
-          <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61579092253323&sk=about" class="social-link"
-              title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://au.linkedin.com/company/the-jobs-n-visa-pty-ltd?trk=public_post_feed-actor-image"
-              class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/@JobsNVisa" class="social-link"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/jobsnvisa/" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.x.com/thejobsnvisa" class="social-link"><svg xmlns="http://www.w3.org/2000/svg"
-                width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-              </svg></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Support</h4>
-          <ul class="footer-links">
-            <li><a href="help-center.html">Help Center</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li>
-              <a href="terms-of-service.html">Terms of Service</a>
-            </li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contact Info</h4>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <a href="tel:+61387643335">+61 3 8764 3335</a>
+                <div class="filter-group">
+                    <select class="filter-select" id="levelFilter" aria-label="Filter by specialization level">
+                        <option value="">All Levels</option>
+                        <option value="general">General</option>
+                        <option value="specialized">Specialized</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <select class="filter-select" id="interactionFilter" aria-label="Filter by patient interaction level">
+                        <option value="">Patient Interaction</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <select class="filter-select" id="employmentFilter" aria-label="Filter by employment type">
+                        <option value="">Employment Type</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="casual">Casual</option>
+                    </select>
+                </div>
             </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:info@jobsnvisa.com.au">info@jobsnvisa.com.au</a>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Sydney, Melbourne, Brisbane</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2026 JobsNVisa. All rights reserved.</p>
-          <p>Licensed Migration Agent | Registered Employment Services</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <script src="main.js"></script>
-  <script src="darkmode.js"></script>
-  
+            <div class="filter-actions">
+                <div class="results-count" id="resultsCount">
+                    Showing <span id="resultNumber">25</span> healthcare professions
+                </div>
+                <button class="reset-filters" id="resetFilters">
+                    <i class="fas fa-undo"></i> Reset Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professions Container -->
+    <section class="professions-container" id="professionsContainer">
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState" style="display: none;">
+            <i class="fas fa-spinner"></i>
+            <p>Loading healthcare professions...</p>
+        </div>
+
+        <!-- No Results State -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-muted);"></i>
+            <h3>No professions found</h3>
+            <p>Try adjusting your search criteria or filters</p>
+        </div>
+
+        <!-- Profession Cards will be dynamically inserted here -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>JobsNVisa</h3>
+                        <p>Your gateway to career excellence in Australia</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#industries">Industries</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+61387643334</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@jobsnvisa.com.au</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sydney, Melbourne, Brisbane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 JobsNVisa. All rights reserved.</p>
+                    <p>Licensed Migration Agent | Registered Employment Services</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="darkmode.js"></script>
+    <script>
+        // Healthcare Professionals Data
+        const healthcareProfessions = [
+            {
+                id: 1,
+                title: "Registered Nurse",
+                category: "nurses",
+                categoryLabel: "Nurses & Midwives",
+                overview: "Provide comprehensive nursing care across various healthcare settings, from acute hospitals to community health centers. Lead patient care teams and coordinate treatment plans.",
+                icon: "fas fa-user-nurse",
+                highDemand: true,
+                responsibilities: [
+                    "Assess patient health conditions and needs",
+                    "Administer medications and treatments",
+                    "Coordinate care with multidisciplinary teams",
+                    "Educate patients and families on health management",
+                    "Maintain accurate patient records and documentation"
+                ],
+                qualifications: [
+                    "Bachelor of Nursing or equivalent",
+                    "AHPRA registration as Registered Nurse",
+                    "Current CPR and First Aid certification",
+                    "English proficiency (IELTS 7.0 or equivalent)"
+                ],
+                skills: ["Clinical Assessment", "Medication Administration", "Patient Education", "Care Coordination"],
+                workEnvironments: ["Hospital", "Clinic", "Aged Care", "Community"],
+                careerProgression: ["Nurse Unit Manager", "Clinical Nurse Specialist", "Nurse Practitioner"],
+                patientImpact: "Direct patient care with high interaction levels, significantly improving health outcomes",
+                setting: "hospital",
+                level: "general",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$70,000 - $95,000"
+            },
+            {
+                id: 2,
+                title: "General Practitioner",
+                category: "doctors",
+                categoryLabel: "Doctors & Specialists",
+                overview: "Primary care physicians providing comprehensive medical care to patients of all ages. Diagnose and treat common medical conditions while coordinating specialist referrals.",
+                icon: "fas fa-user-md",
+                highDemand: true,
+                responsibilities: [
+                    "Conduct comprehensive patient consultations",
+                    "Diagnose and treat acute and chronic conditions",
+                    "Provide preventive care and health screenings",
+                    "Coordinate care with specialists and allied health",
+                    "Maintain continuing medical education"
+                ],
+                qualifications: [
+                    "Medical degree (MBBS or equivalent)",
+                    "AHPRA registration as Medical Practitioner",
+                    "Fellowship of RACGP or ACRRM",
+                    "Medical indemnity insurance"
+                ],
+                skills: ["Clinical Diagnosis", "Patient Management", "Preventive Care", "Medical Leadership"],
+                workEnvironments: ["Clinic", "Community", "Hospital"],
+                careerProgression: ["Practice Principal", "Medical Director", "Specialist Training"],
+                patientImpact: "Primary healthcare provider with comprehensive patient relationships and health outcomes",
+                setting: "clinic",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$150,000 - $300,000"
+            },
+            {
+                id: 3,
+                title: "Physiotherapist",
+                category: "allied",
+                categoryLabel: "Allied Health",
+                overview: "Help patients restore movement and function through exercise, manual therapy, and education. Work with individuals recovering from injury, surgery, or managing chronic conditions.",
+                icon: "fas fa-dumbbell",
+                highDemand: false,
+                responsibilities: [
+                    "Assess patient movement and functional capacity",
+                    "Develop individualized treatment plans",
+                    "Provide manual therapy and exercise prescription",
+                    "Educate patients on injury prevention",
+                    "Collaborate with multidisciplinary teams"
+                ],
+                qualifications: [
+                    "Bachelor or Master of Physiotherapy",
+                    "AHPRA registration as Physiotherapist",
+                    "Professional indemnity insurance",
+                    "Continuing professional development"
+                ],
+                skills: ["Movement Assessment", "Manual Therapy", "Exercise Prescription", "Patient Education"],
+                workEnvironments: ["Hospital", "Clinic", "Community", "Home Care"],
+                careerProgression: ["Senior Physiotherapist", "Clinical Specialist", "Practice Owner"],
+                patientImpact: "Restore mobility and function, significantly improving quality of life",
+                setting: "clinic",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$75,000 - $110,000"
+            },
+            {
+                id: 4,
+                title: "Medical Laboratory Technologist",
+                category: "technical",
+                categoryLabel: "Lab & Technical",
+                overview: "Perform complex laboratory tests and analyses to support medical diagnosis and treatment. Work with sophisticated equipment to analyze blood, tissue, and other specimens.",
+                icon: "fas fa-microscope",
+                highDemand: true,
+                responsibilities: [
+                    "Perform laboratory tests and analyses",
+                    "Operate and maintain laboratory equipment",
+                    "Ensure quality control and accuracy",
+                    "Interpret and report test results",
+                    "Follow safety and regulatory protocols"
+                ],
+                qualifications: [
+                    "Bachelor of Medical Laboratory Science",
+                    "AIMS registration or equivalent",
+                    "Laboratory safety certification",
+                    "Continuing education requirements"
+                ],
+                skills: ["Laboratory Analysis", "Quality Control", "Equipment Operation", "Data Interpretation"],
+                workEnvironments: ["Laboratory", "Hospital", "Clinic"],
+                careerProgression: ["Senior Technologist", "Laboratory Manager", "Quality Assurance Manager"],
+                patientImpact: "Critical diagnostic support enabling accurate medical diagnosis and treatment",
+                setting: "laboratory",
+                level: "specialized",
+                interaction: "low",
+                employment: "full-time",
+                salaryRange: "$65,000 - $85,000"
+            },
+            {
+                id: 5,
+                title: "Personal Care Worker",
+                category: "support",
+                categoryLabel: "Support & Community",
+                overview: "Provide essential personal care and support to individuals in their homes, aged care facilities, or community settings. Help clients maintain independence and dignity.",
+                icon: "fas fa-hands-helping",
+                highDemand: true,
+                responsibilities: [
+                    "Assist with personal hygiene and grooming",
+                    "Support with mobility and transfers",
+                    "Provide companionship and emotional support",
+                    "Assist with meal preparation and feeding",
+                    "Document care provided and observations"
+                ],
+                qualifications: [
+                    "Certificate III in Individual Support",
+                    "Working with Vulnerable People check",
+                    "First Aid and CPR certification",
+                    "Police clearance certificate"
+                ],
+                skills: ["Personal Care", "Communication", "Empathy", "Observation Skills"],
+                workEnvironments: ["Home Care", "Aged Care", "Community"],
+                careerProgression: ["Senior Care Worker", "Team Leader", "Care Coordinator"],
+                patientImpact: "Direct personal care improving quality of life and maintaining independence",
+                setting: "home-care",
+                level: "general",
+                interaction: "high",
+                employment: "part-time",
+                salaryRange: "$50,000 - $65,000"
+            },
+            {
+                id: 6,
+                title: "Radiographer",
+                category: "technical",
+                categoryLabel: "Lab & Technical",
+                overview: "Operate imaging equipment to produce diagnostic images including X-rays, CT scans, MRI, and ultrasound. Work directly with patients to ensure quality imaging for medical diagnosis.",
+                icon: "fas fa-x-ray",
+                highDemand: false,
+                responsibilities: [
+                    "Operate medical imaging equipment",
+                    "Position patients for optimal imaging",
+                    "Ensure radiation safety protocols",
+                    "Maintain equipment and quality standards",
+                    "Collaborate with radiologists and clinicians"
+                ],
+                qualifications: [
+                    "Bachelor of Medical Radiation Science",
+                    "AHPRA registration as Medical Radiation Practitioner",
+                    "Radiation safety certification",
+                    "Continuing professional development"
+                ],
+                skills: ["Medical Imaging", "Radiation Safety", "Patient Care", "Technical Operation"],
+                workEnvironments: ["Hospital", "Clinic", "Laboratory"],
+                careerProgression: ["Senior Radiographer", "Chief Radiographer", "Clinical Specialist"],
+                patientImpact: "Essential diagnostic imaging supporting accurate medical diagnosis",
+                setting: "hospital",
+                level: "specialized",
+                interaction: "medium",
+                employment: "full-time",
+                salaryRange: "$75,000 - $95,000"
+            },
+            {
+                id: 7,
+                title: "Occupational Therapist",
+                category: "allied",
+                categoryLabel: "Allied Health",
+                overview: "Help people participate in daily activities through therapeutic interventions. Work with individuals across all ages to overcome barriers to participation in meaningful activities.",
+                icon: "fas fa-puzzle-piece",
+                highDemand: false,
+                responsibilities: [
+                    "Assess functional capacity and needs",
+                    "Develop intervention plans and goals",
+                    "Provide therapeutic activities and exercises",
+                    "Recommend assistive technology and modifications",
+                    "Educate clients and families on strategies"
+                ],
+                qualifications: [
+                    "Bachelor or Master of Occupational Therapy",
+                    "AHPRA registration as Occupational Therapist",
+                    "Professional indemnity insurance",
+                    "Specialized training in assessment tools"
+                ],
+                skills: ["Activity Analysis", "Therapeutic Intervention", "Assessment", "Problem Solving"],
+                workEnvironments: ["Hospital", "Community", "Clinic", "Home Care"],
+                careerProgression: ["Senior OT", "Team Leader", "Clinical Specialist"],
+                patientImpact: "Enable participation in meaningful activities and improve quality of life",
+                setting: "community",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$75,000 - $105,000"
+            },
+            {
+                id: 8,
+                title: "Midwife",
+                category: "nurses",
+                categoryLabel: "Nurses & Midwives",
+                overview: "Provide specialized care to women during pregnancy, labor, birth, and the postnatal period. Support families through one of life's most significant experiences.",
+                icon: "fas fa-baby",
+                highDemand: true,
+                responsibilities: [
+                    "Provide antenatal care and education",
+                    "Support women during labor and birth",
+                    "Conduct postnatal care and assessments",
+                    "Provide breastfeeding support and education",
+                    "Collaborate with obstetricians and pediatricians"
+                ],
+                qualifications: [
+                    "Bachelor of Midwifery or Nursing + Midwifery",
+                    "AHPRA registration as Midwife",
+                    "Neonatal resuscitation certification",
+                    "Continuing midwifery education"
+                ],
+                skills: ["Obstetric Care", "Neonatal Care", "Family Support", "Emergency Response"],
+                workEnvironments: ["Hospital", "Community", "Home Care"],
+                careerProgression: ["Clinical Midwifery Consultant", "Midwifery Unit Manager", "Lactation Consultant"],
+                patientImpact: "Support safe childbirth and positive birth experiences for families",
+                setting: "hospital",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$75,000 - $100,000"
+            },
+            {
+                id: 9,
+                title: "Speech Pathologist",
+                category: "allied",
+                categoryLabel: "Allied Health",
+                overview: "Assess, diagnose, and treat communication and swallowing disorders across all age groups. Help individuals improve their ability to communicate effectively.",
+                icon: "fas fa-comments",
+                highDemand: false,
+                responsibilities: [
+                    "Assess communication and swallowing disorders",
+                    "Develop individualized therapy programs",
+                    "Provide direct therapy interventions",
+                    "Educate families and caregivers",
+                    "Collaborate with multidisciplinary teams"
+                ],
+                qualifications: [
+                    "Master of Speech Pathology",
+                    "Speech Pathology Australia certification",
+                    "AHPRA registration (if applicable)",
+                    "Specialized assessment training"
+                ],
+                skills: ["Communication Assessment", "Therapy Planning", "Swallowing Assessment", "Family Education"],
+                workEnvironments: ["Hospital", "Community", "Clinic"],
+                careerProgression: ["Senior Speech Pathologist", "Clinical Specialist", "Team Leader"],
+                patientImpact: "Improve communication abilities and swallowing safety",
+                setting: "clinic",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$75,000 - $105,000"
+            },
+            {
+                id: 10,
+                title: "Emergency Medicine Physician",
+                category: "doctors",
+                categoryLabel: "Doctors & Specialists",
+                overview: "Provide immediate medical care to patients with acute illnesses and injuries in emergency departments. Make critical decisions under pressure to save lives.",
+                icon: "fas fa-ambulance",
+                highDemand: true,
+                responsibilities: [
+                    "Assess and treat emergency medical conditions",
+                    "Perform emergency procedures and resuscitation",
+                    "Coordinate with trauma and specialist teams",
+                    "Make rapid clinical decisions under pressure",
+                    "Provide emergency medical education"
+                ],
+                qualifications: [
+                    "Medical degree and emergency medicine training",
+                    "FACEM fellowship",
+                    "AHPRA specialist registration",
+                    "Advanced life support certifications"
+                ],
+                skills: ["Emergency Medicine", "Critical Care", "Trauma Management", "Leadership"],
+                workEnvironments: ["Hospital"],
+                careerProgression: ["Senior Emergency Physician", "Emergency Department Director", "Medical Director"],
+                patientImpact: "Life-saving emergency care with immediate impact on patient outcomes",
+                setting: "hospital",
+                level: "advanced",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$200,000 - $400,000"
+            },
+            {
+                id: 11,
+                title: "Mental Health Nurse",
+                category: "nurses",
+                categoryLabel: "Nurses & Midwives",
+                overview: "Specialize in caring for individuals with mental health conditions. Provide therapeutic support and coordinate mental health treatment plans.",
+                icon: "fas fa-brain",
+                highDemand: true,
+                responsibilities: [
+                    "Assess mental health status and risks",
+                    "Provide therapeutic nursing interventions",
+                    "Administer psychiatric medications",
+                    "Support patients and families",
+                    "Collaborate with mental health teams"
+                ],
+                qualifications: [
+                    "Bachelor of Nursing + Mental Health qualification",
+                    "AHPRA registration as Registered Nurse",
+                    "Mental health first aid certification",
+                    "Specialized mental health training"
+                ],
+                skills: ["Mental Health Assessment", "Therapeutic Communication", "Crisis Intervention", "Medication Management"],
+                workEnvironments: ["Hospital", "Community", "Clinic"],
+                careerProgression: ["Clinical Nurse Specialist", "Mental Health Coordinator", "Nurse Practitioner"],
+                patientImpact: "Support mental health recovery and improve psychological wellbeing",
+                setting: "hospital",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$75,000 - $100,000"
+            },
+            {
+                id: 12,
+                title: "Dietitian",
+                category: "allied",
+                categoryLabel: "Allied Health",
+                overview: "Provide nutrition assessment and dietary counseling to promote health and manage medical conditions. Work with individuals and communities to improve nutritional outcomes.",
+                icon: "fas fa-apple-alt",
+                highDemand: false,
+                responsibilities: [
+                    "Conduct nutritional assessments",
+                    "Develop individualized meal plans",
+                    "Provide nutrition education and counseling",
+                    "Monitor nutritional progress",
+                    "Collaborate with healthcare teams"
+                ],
+                qualifications: [
+                    "Bachelor of Nutrition and Dietetics",
+                    "Dietitians Australia accreditation",
+                    "AHPRA registration (if applicable)",
+                    "Continuing professional development"
+                ],
+                skills: ["Nutritional Assessment", "Meal Planning", "Health Education", "Counseling"],
+                workEnvironments: ["Hospital", "Community", "Clinic"],
+                careerProgression: ["Senior Dietitian", "Clinical Specialist", "Department Manager"],
+                patientImpact: "Improve health outcomes through evidence-based nutrition interventions",
+                setting: "clinic",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$70,000 - $95,000"
+            },
+            {
+                id: 13,
+                title: "Aged Care Nurse",
+                category: "nurses",
+                categoryLabel: "Nurses & Midwives",
+                overview: "Provide specialized nursing care to elderly residents in aged care facilities. Focus on maintaining dignity, comfort, and quality of life for older adults.",
+                icon: "fas fa-heart",
+                highDemand: true,
+                responsibilities: [
+                    "Assess and monitor elderly residents' health",
+                    "Administer medications and treatments",
+                    "Coordinate care with families and teams",
+                    "Provide end-of-life care and support",
+                    "Maintain care plans and documentation"
+                ],
+                qualifications: [
+                    "Bachelor of Nursing",
+                    "AHPRA registration as Registered Nurse",
+                    "Aged care experience preferred",
+                    "Palliative care training beneficial"
+                ],
+                skills: ["Geriatric Care", "Medication Management", "Family Communication", "Palliative Care"],
+                workEnvironments: ["Aged Care"],
+                careerProgression: ["Clinical Care Coordinator", "Facility Manager", "Aged Care Specialist"],
+                patientImpact: "Enhance quality of life and dignity for elderly residents",
+                setting: "aged-care",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$70,000 - $90,000"
+            },
+            {
+                id: 14,
+                title: "Biomedical Technician",
+                category: "technical",
+                categoryLabel: "Lab & Technical",
+                overview: "Maintain, repair, and calibrate medical equipment to ensure safe and effective operation. Support healthcare delivery through technical expertise.",
+                icon: "fas fa-tools",
+                highDemand: false,
+                responsibilities: [
+                    "Maintain and repair medical equipment",
+                    "Perform equipment calibration and testing",
+                    "Ensure compliance with safety standards",
+                    "Provide technical support to clinical staff",
+                    "Maintain equipment records and documentation"
+                ],
+                qualifications: [
+                    "Diploma or Bachelor in Biomedical Engineering",
+                    "Technical certification in medical equipment",
+                    "Electronics and mechanical skills",
+                    "Safety and compliance training"
+                ],
+                skills: ["Equipment Maintenance", "Technical Troubleshooting", "Safety Compliance", "Documentation"],
+                workEnvironments: ["Hospital", "Laboratory", "Clinic"],
+                careerProgression: ["Senior Technician", "Technical Supervisor", "Equipment Manager"],
+                patientImpact: "Ensure reliable medical equipment for safe and effective patient care",
+                setting: "hospital",
+                level: "specialized",
+                interaction: "low",
+                employment: "full-time",
+                salaryRange: "$60,000 - $80,000"
+            },
+            {
+                id: 15,
+                title: "Social Worker",
+                category: "allied",
+                categoryLabel: "Allied Health",
+                overview: "Support individuals and families facing social, emotional, and practical challenges. Advocate for vulnerable populations and connect people with community resources.",
+                icon: "fas fa-users",
+                highDemand: false,
+                responsibilities: [
+                    "Assess psychosocial needs and risks",
+                    "Develop support and intervention plans",
+                    "Connect clients with community resources",
+                    "Provide counseling and advocacy",
+                    "Collaborate with multidisciplinary teams"
+                ],
+                qualifications: [
+                    "Bachelor or Master of Social Work",
+                    "Australian Association of Social Workers membership",
+                    "Working with Vulnerable People check",
+                    "Specialized training in assessment tools"
+                ],
+                skills: ["Psychosocial Assessment", "Counseling", "Advocacy", "Resource Coordination"],
+                workEnvironments: ["Hospital", "Community", "Clinic"],
+                careerProgression: ["Senior Social Worker", "Team Leader", "Program Manager"],
+                patientImpact: "Support social and emotional wellbeing, connecting people with essential resources",
+                setting: "community",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$65,000 - $90,000"
+            },
+            {
+                id: 16,
+                title: "Pediatrician",
+                category: "doctors",
+                categoryLabel: "Doctors & Specialists",
+                overview: "Specialize in the medical care of infants, children, and adolescents. Provide comprehensive healthcare from birth through teenage years.",
+                icon: "fas fa-child",
+                highDemand: true,
+                responsibilities: [
+                    "Provide comprehensive pediatric care",
+                    "Conduct developmental assessments",
+                    "Manage childhood illnesses and conditions",
+                    "Provide immunizations and preventive care",
+                    "Support families with health education"
+                ],
+                qualifications: [
+                    "Medical degree and pediatric training",
+                    "FRACP fellowship in Pediatrics",
+                    "AHPRA specialist registration",
+                    "Child protection training"
+                ],
+                skills: ["Pediatric Medicine", "Developmental Assessment", "Family Communication", "Preventive Care"],
+                workEnvironments: ["Hospital", "Clinic"],
+                careerProgression: ["Senior Pediatrician", "Department Head", "Pediatric Subspecialist"],
+                patientImpact: "Ensure healthy development and treat childhood illnesses",
+                setting: "hospital",
+                level: "advanced",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$180,000 - $350,000"
+            },
+            {
+                id: 17,
+                title: "Healthcare Assistant",
+                category: "support",
+                categoryLabel: "Support & Community",
+                overview: "Support healthcare teams by assisting with patient care, administrative tasks, and maintaining healthcare environments. Provide essential support services.",
+                icon: "fas fa-hand-holding-heart",
+                highDemand: true,
+                responsibilities: [
+                    "Assist with basic patient care tasks",
+                    "Support nursing staff with procedures",
+                    "Maintain clean and safe environments",
+                    "Transport patients and equipment",
+                    "Provide administrative support"
+                ],
+                qualifications: [
+                    "Certificate III in Health Services Assistance",
+                    "Working with Vulnerable People check",
+                    "First Aid certification",
+                    "Basic life support training"
+                ],
+                skills: ["Patient Support", "Communication", "Teamwork", "Attention to Detail"],
+                workEnvironments: ["Hospital", "Clinic", "Aged Care"],
+                careerProgression: ["Senior Healthcare Assistant", "Team Leader", "Unit Coordinator"],
+                patientImpact: "Support patient comfort and assist healthcare teams in delivering quality care",
+                setting: "hospital",
+                level: "general",
+                interaction: "medium",
+                employment: "part-time",
+                salaryRange: "$45,000 - $60,000"
+            },
+            {
+                id: 18,
+                title: "Psychologist",
+                category: "allied",
+                categoryLabel: "Allied Health",
+                overview: "Assess and treat mental health conditions through psychological interventions. Help individuals overcome psychological challenges and improve mental wellbeing.",
+                icon: "fas fa-head-side-virus",
+                highDemand: false,
+                responsibilities: [
+                    "Conduct psychological assessments",
+                    "Provide individual and group therapy",
+                    "Develop treatment plans and interventions",
+                    "Collaborate with multidisciplinary teams",
+                    "Provide psychological reports and recommendations"
+                ],
+                qualifications: [
+                    "Master or Doctorate in Psychology",
+                    "Psychology Board of Australia registration",
+                    "Supervised practice requirements",
+                    "Continuing professional development"
+                ],
+                skills: ["Psychological Assessment", "Therapy Delivery", "Report Writing", "Clinical Judgment"],
+                workEnvironments: ["Hospital", "Community", "Clinic"],
+                careerProgression: ["Senior Psychologist", "Clinical Supervisor", "Program Director"],
+                patientImpact: "Improve mental health and psychological wellbeing through evidence-based interventions",
+                setting: "clinic",
+                level: "advanced",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$80,000 - $120,000"
+            },
+            {
+                id: 19,
+                title: "Anesthesiologist",
+                category: "doctors",
+                categoryLabel: "Doctors & Specialists",
+                overview: "Provide anesthesia care before, during, and after surgical procedures. Ensure patient safety and comfort during medical procedures.",
+                icon: "fas fa-syringe",
+                highDemand: true,
+                responsibilities: [
+                    "Assess patients for anesthetic risk",
+                    "Administer anesthesia during procedures",
+                    "Monitor patients during surgery",
+                    "Manage post-operative pain",
+                    "Provide critical care support"
+                ],
+                qualifications: [
+                    "Medical degree and anesthesia training",
+                    "FANZCA fellowship",
+                    "AHPRA specialist registration",
+                    "Advanced life support certifications"
+                ],
+                skills: ["Anesthesia Administration", "Patient Monitoring", "Critical Care", "Pain Management"],
+                workEnvironments: ["Hospital"],
+                careerProgression: ["Senior Anesthesiologist", "Department Director", "Intensive Care Specialist"],
+                patientImpact: "Ensure safe and comfortable surgical experiences",
+                setting: "hospital",
+                level: "advanced",
+                interaction: "medium",
+                employment: "full-time",
+                salaryRange: "$250,000 - $500,000"
+            },
+            {
+                id: 20,
+                title: "Community Care Nurse",
+                category: "nurses",
+                categoryLabel: "Nurses & Midwives",
+                overview: "Provide nursing care to patients in their homes and community settings. Support individuals to maintain independence while managing health conditions.",
+                icon: "fas fa-home-heart",
+                highDemand: true,
+                responsibilities: [
+                    "Provide nursing care in home settings",
+                    "Assess patient health and safety",
+                    "Coordinate care with families and services",
+                    "Provide health education and support",
+                    "Monitor chronic conditions and medications"
+                ],
+                qualifications: [
+                    "Bachelor of Nursing",
+                    "AHPRA registration as Registered Nurse",
+                    "Community nursing experience",
+                    "Valid driver's license"
+                ],
+                skills: ["Community Nursing", "Health Assessment", "Family Education", "Care Coordination"],
+                workEnvironments: ["Home Care", "Community"],
+                careerProgression: ["Senior Community Nurse", "Team Leader", "Service Coordinator"],
+                patientImpact: "Enable people to remain in their homes while receiving quality healthcare",
+                setting: "home-care",
+                level: "specialized",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$70,000 - $90,000"
+            },
+            {
+                id: 21,
+                title: "Pathology Assistant",
+                category: "technical",
+                categoryLabel: "Lab & Technical",
+                overview: "Support pathologists in examining tissue samples and specimens. Assist with laboratory procedures and specimen preparation for diagnosis.",
+                icon: "fas fa-vial",
+                highDemand: false,
+                responsibilities: [
+                    "Prepare tissue specimens for examination",
+                    "Assist with autopsy procedures",
+                    "Maintain laboratory equipment and supplies",
+                    "Document specimen information accurately",
+                    "Follow safety and quality protocols"
+                ],
+                qualifications: [
+                    "Certificate IV in Laboratory Techniques",
+                    "Pathology-specific training",
+                    "Laboratory safety certification",
+                    "Attention to detail and accuracy"
+                ],
+                skills: ["Specimen Preparation", "Laboratory Techniques", "Documentation", "Quality Control"],
+                workEnvironments: ["Laboratory", "Hospital"],
+                careerProgression: ["Senior Pathology Assistant", "Laboratory Supervisor", "Quality Coordinator"],
+                patientImpact: "Support accurate pathological diagnosis for effective treatment planning",
+                setting: "laboratory",
+                level: "specialized",
+                interaction: "low",
+                employment: "full-time",
+                salaryRange: "$55,000 - $75,000"
+            },
+            {
+                id: 22,
+                title: "Disability Support Worker",
+                category: "support",
+                categoryLabel: "Support & Community",
+                overview: "Support individuals with disabilities to participate in community activities and achieve their goals. Provide person-centered support and advocacy.",
+                icon: "fas fa-wheelchair",
+                highDemand: true,
+                responsibilities: [
+                    "Provide personal care and support",
+                    "Assist with community participation",
+                    "Support skill development and independence",
+                    "Implement behavior support plans",
+                    "Advocate for client rights and choices"
+                ],
+                qualifications: [
+                    "Certificate III in Individual Support (Disability)",
+                    "NDIS Worker Screening Check",
+                    "Working with Vulnerable People check",
+                    "First Aid and CPR certification"
+                ],
+                skills: ["Person-Centered Support", "Communication", "Behavior Support", "Advocacy"],
+                workEnvironments: ["Community", "Home Care"],
+                careerProgression: ["Senior Support Worker", "Team Leader", "Support Coordinator"],
+                patientImpact: "Enable people with disabilities to live independently and participate in community",
+                setting: "community",
+                level: "general",
+                interaction: "high",
+                employment: "part-time",
+                salaryRange: "$50,000 - $70,000"
+            },
+            {
+                id: 23,
+                title: "Surgeon",
+                category: "doctors",
+                categoryLabel: "Doctors & Specialists",
+                overview: "Perform surgical procedures to treat diseases, injuries, and deformities. Provide specialized surgical care across various medical specialties.",
+                icon: "fas fa-cut",
+                highDemand: true,
+                responsibilities: [
+                    "Perform complex surgical procedures",
+                    "Assess patients for surgical intervention",
+                    "Provide pre and post-operative care",
+                    "Lead surgical teams in operating theaters",
+                    "Participate in surgical education and training"
+                ],
+                qualifications: [
+                    "Medical degree and surgical training",
+                    "FRACS fellowship",
+                    "AHPRA specialist registration",
+                    "Specialized surgical training"
+                ],
+                skills: ["Surgical Techniques", "Clinical Decision Making", "Leadership", "Patient Management"],
+                workEnvironments: ["Hospital"],
+                careerProgression: ["Senior Surgeon", "Department Head", "Surgical Director"],
+                patientImpact: "Provide life-saving and life-improving surgical interventions",
+                setting: "hospital",
+                level: "advanced",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$300,000 - $800,000"
+            },
+            {
+                id: 24,
+                title: "Dialysis Technician",
+                category: "technical",
+                categoryLabel: "Lab & Technical",
+                overview: "Operate dialysis equipment and provide technical support for patients receiving kidney dialysis treatment. Ensure safe and effective dialysis procedures.",
+                icon: "fas fa-heartbeat",
+                highDemand: false,
+                responsibilities: [
+                    "Operate dialysis machines and equipment",
+                    "Monitor patients during dialysis treatment",
+                    "Maintain equipment and ensure safety",
+                    "Document treatment parameters",
+                    "Support nursing staff with patient care"
+                ],
+                qualifications: [
+                    "Certificate III in Health Services Assistance",
+                    "Dialysis-specific training",
+                    "Basic life support certification",
+                    "Technical equipment training"
+                ],
+                skills: ["Equipment Operation", "Patient Monitoring", "Technical Maintenance", "Safety Protocols"],
+                workEnvironments: ["Hospital", "Clinic"],
+                careerProgression: ["Senior Dialysis Technician", "Technical Supervisor", "Unit Coordinator"],
+                patientImpact: "Support life-sustaining dialysis treatment for kidney patients",
+                setting: "hospital",
+                level: "specialized",
+                interaction: "medium",
+                employment: "full-time",
+                salaryRange: "$55,000 - $70,000"
+            },
+            {
+                id: 25,
+                title: "Nurse Practitioner",
+                category: "nurses",
+                categoryLabel: "Nurses & Midwives",
+                overview: "Advanced practice nurses with extended scope of practice including diagnosis, treatment, and prescribing. Provide autonomous nursing care in specialized areas.",
+                icon: "fas fa-user-nurse",
+                highDemand: true,
+                responsibilities: [
+                    "Diagnose and treat health conditions",
+                    "Prescribe medications and treatments",
+                    "Order and interpret diagnostic tests",
+                    "Provide advanced nursing care",
+                    "Mentor and educate nursing staff"
+                ],
+                qualifications: [
+                    "Master of Nursing (Nurse Practitioner)",
+                    "AHPRA endorsement as Nurse Practitioner",
+                    "Extensive clinical experience",
+                    "Continuing professional development"
+                ],
+                skills: ["Advanced Assessment", "Diagnosis", "Prescribing", "Clinical Leadership"],
+                workEnvironments: ["Hospital", "Clinic", "Community"],
+                careerProgression: ["Senior Nurse Practitioner", "Clinical Director", "Advanced Practice Leader"],
+                patientImpact: "Provide advanced nursing care with autonomous practice and improved access to healthcare",
+                setting: "clinic",
+                level: "advanced",
+                interaction: "high",
+                employment: "full-time",
+                salaryRange: "$100,000 - $130,000"
+            }
+        ];
+
+        // Filter and Search Functionality
+        let filteredProfessions = [...healthcareProfessions];
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const settingFilter = document.getElementById('settingFilter');
+        const levelFilter = document.getElementById('levelFilter');
+        const interactionFilter = document.getElementById('interactionFilter');
+        const employmentFilter = document.getElementById('employmentFilter');
+        const resetFilters = document.getElementById('resetFilters');
+        const professionsContainer = document.getElementById('professionsContainer');
+        const resultsCount = document.getElementById('resultsCount');
+        const resultNumber = document.getElementById('resultNumber');
+        const loadingState = document.getElementById('loadingState');
+        const noResults = document.getElementById('noResults');
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProfessions();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            searchInput.addEventListener('input', debounce(filterProfessions, 300));
+            categoryFilter.addEventListener('change', filterProfessions);
+            settingFilter.addEventListener('change', filterProfessions);
+            levelFilter.addEventListener('change', filterProfessions);
+            interactionFilter.addEventListener('change', filterProfessions);
+            employmentFilter.addEventListener('change', filterProfessions);
+            resetFilters.addEventListener('click', resetAllFilters);
+        }
+
+        function filterProfessions() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const category = categoryFilter.value;
+            const setting = settingFilter.value;
+            const level = levelFilter.value;
+            const interaction = interactionFilter.value;
+            const employment = employmentFilter.value;
+
+            filteredProfessions = healthcareProfessions.filter(profession => {
+                const matchesSearch = !searchTerm || 
+                    profession.title.toLowerCase().includes(searchTerm) ||
+                    profession.overview.toLowerCase().includes(searchTerm) ||
+                    profession.skills.some(skill => skill.toLowerCase().includes(searchTerm)) ||
+                    profession.responsibilities.some(resp => resp.toLowerCase().includes(searchTerm));
+
+                const matchesCategory = !category || profession.category === category;
+                const matchesSetting = !setting || profession.setting === setting;
+                const matchesLevel = !level || profession.level === level;
+                const matchesInteraction = !interaction || profession.interaction === interaction;
+                const matchesEmployment = !employment || profession.employment === employment;
+
+                return matchesSearch && matchesCategory && matchesSetting && 
+                       matchesLevel && matchesInteraction && matchesEmployment;
+            });
+
+            renderProfessions();
+            updateResultsCount();
+        }
+
+        function resetAllFilters() {
+            searchInput.value = '';
+            categoryFilter.value = '';
+            settingFilter.value = '';
+            levelFilter.value = '';
+            interactionFilter.value = '';
+            employmentFilter.value = '';
+            
+            filteredProfessions = [...healthcareProfessions];
+            renderProfessions();
+            updateResultsCount();
+        }
+
+        function renderProfessions() {
+            // Show loading state
+            showLoadingState();
+
+            // Simulate loading delay for better UX
+            setTimeout(() => {
+                hideLoadingState();
+
+                if (filteredProfessions.length === 0) {
+                    showNoResults();
+                    return;
+                }
+
+                hideNoResults();
+
+                const professionsHTML = filteredProfessions.map((profession, index) => {
+                    const isReverse = index % 2 === 1;
+                    return createProfessionCard(profession, isReverse);
+                }).join('');
+
+                professionsContainer.innerHTML = professionsHTML;
+            }, 300);
+        }
+
+        function createProfessionCard(profession, isReverse = false) {
+            return `
+                <div class="profession-card ${isReverse ? 'reverse' : ''}" data-profession-id="${profession.id}">
+                    <div class="profession-image">
+                        <i class="${profession.icon}"></i>
+                        ${profession.highDemand ? '<div class="high-demand-badge">High Demand</div>' : ''}
+                    </div>
+                    <div class="profession-content">
+                        <div class="profession-header">
+                            <h2 class="profession-title">${profession.title}</h2>
+                            <span class="profession-category">${profession.categoryLabel}</span>
+                            <p class="profession-overview">${profession.overview}</p>
+                        </div>
+
+                        <div class="profession-details">
+                            <div class="detail-section">
+                                <h4>Key Responsibilities</h4>
+                                <ul>
+                                    ${profession.responsibilities.slice(0, 3).map(resp => `<li>${resp}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Qualifications</h4>
+                                <ul>
+                                    ${profession.qualifications.slice(0, 3).map(qual => `<li>${qual}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="profession-tags">
+                            ${profession.skills.map(skill => `<span class="tag">${skill}</span>`).join('')}
+                        </div>
+
+                        <div class="profession-actions">
+                            <button class="action-btn primary" onclick="viewRoleDetails(${profession.id})">
+                                <i class="fas fa-eye"></i> View Role Details
+                            </button>
+                            <button class="action-btn secondary" onclick="checkEligibility(${profession.id})">
+                                <i class="fas fa-check-circle"></i> Check Eligibility
+                            </button>
+                            <button class="action-btn secondary" onclick="applyOrEnquire(${profession.id})">
+                                <i class="fas fa-paper-plane"></i> Apply or Enquire
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateResultsCount() {
+            resultNumber.textContent = filteredProfessions.length;
+        }
+
+        function showLoadingState() {
+            loadingState.style.display = 'block';
+            professionsContainer.style.display = 'none';
+        }
+
+        function hideLoadingState() {
+            loadingState.style.display = 'none';
+            professionsContainer.style.display = 'block';
+        }
+
+        function showNoResults() {
+            noResults.style.display = 'block';
+            professionsContainer.innerHTML = '';
+        }
+
+        function hideNoResults() {
+            noResults.style.display = 'none';
+        }
+
+        // Action Functions
+        function viewRoleDetails(professionId) {
+            const profession = healthcareProfessions.find(p => p.id === professionId);
+            if (profession) {
+                // In a real application, this would navigate to a detailed page
+                alert(`Viewing details for ${profession.title}\n\nSalary Range: ${profession.salaryRange}\nCareer Progression: ${profession.careerProgression.join(', ')}\n\nPatient Impact: ${profession.patientImpact}`);
+            }
+        }
+
+        function checkEligibility(professionId) {
+            const profession = healthcareProfessions.find(p => p.id === professionId);
+            if (profession) {
+                // In a real application, this would open an eligibility assessment
+                alert(`Eligibility Check for ${profession.title}\n\nRequired Qualifications:\n${profession.qualifications.join('\n')}\n\nWould you like to proceed with a detailed eligibility assessment?`);
+            }
+        }
+
+        function applyOrEnquire(professionId) {
+            const profession = healthcareProfessions.find(p => p.id === professionId);
+            if (profession) {
+                // In a real application, this would open an application form
+                alert(`Apply for ${profession.title}\n\nThis would open an application form or connect you with our recruitment team.\n\nContact: info@jobsnvisa.com.au\nPhone: +61 3 8764 3334`);
+            }
+        }
+
+        // Utility Functions
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchInput.blur();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
