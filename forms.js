@@ -1,8 +1,7 @@
 // ===============================
 // CONFIG
 // ===============================
-const GOOGLE_SHEET_API =
-  'https://script.google.com/macros/s/AKfycby3x0LEdUvxPdRQaXyMcQOenDCRcNBwdGBIOD_qXbummyoEU7AoRvvn2P-ELkQBsHmg/exec'; 
+const GOOGLE_SHEET_API ='https://script.google.com/macros/s/AKfycby2abLDHWn07R9LSj2v_EgK7q0gGhuRAFzQ3F8w9XZxK22BqniGKOXhjNtrAZY-j8UX/exec'; 
 // ⬆️ replace with your real Apps Script URL
 
 // ===============================
