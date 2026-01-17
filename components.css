@@ -1501,7 +1501,7 @@
 }
 
 .file-info {
-  margin-top: 6PX;
+  margin-top:12PX;
   padding:12PX;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
