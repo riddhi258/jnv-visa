@@ -185,14 +185,20 @@ async function handleContactSubmit(e) {
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
-  const res = await fetch(GOOGLE_SHEET_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
+  try {
+    const res = await fetch(GOOGLE_SHEET_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    });
 
-  if (!res.ok) throw new Error('Google Sheet error');
-  return res.json();
+    if (!res.ok && res.status !== 0) throw new Error('Google Sheet error');
+    return res.status === 0 ? { success: true } : res.json();
+  } catch (err) {
+    console.error('Fetch error:', err);
+    throw err;
+  }
 }
 
 // ===============================
