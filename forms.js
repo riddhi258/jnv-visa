@@ -186,7 +186,7 @@ async function handleContactSubmit(e) {
 // ===============================
 async function sendToSheet(payload) {
   try {
-    const res = await fetch(GOOGLE_SHEET_API, {
+    const res = await fetch('https://script.google.com/macros/s/AKfycby2abLDHWn07R9LSj2v_EgK7q0gGhuRAFzQ3F8w9XZxK22BqniGKOXhjNtrAZY-j8UX/exec', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       mode: 'no-cors',
