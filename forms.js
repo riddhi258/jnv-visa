@@ -148,36 +148,6 @@ async function handlePostJobSubmit(e) {
 }
 
 // ===============================
-// CONTACT
-// ===============================
-async function handleContactSubmit(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const btn = e.target.querySelector('.btn-submit');
-  toggleLoading(btn, true, 'Sending...');
-
-  try {
-    await sendToSheet({
-      type: 'contact',
-      name: formData.get('name'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      subject: formData.get('subject'),
-      message: formData.get('message')
-    });
-
-    showSuccessModal('Thank you! We will get back to you shortly.');
-    e.target.reset();
-
-  } catch (err) {
-    alert('Message failed. Please try again.');
-    console.error(err);
-  } finally {
-    toggleLoading(btn, false);
-  }
-}
-
-// ===============================
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
