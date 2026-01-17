@@ -155,13 +155,13 @@ async function sendToSheet(payload) {
   try {
     const res = await fetch(GOOGLE_SHEET_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload) // Remove 'no-cors'
+      body: JSON.stringify(payload)
     });
 
-    const data = await res.json(); // parse response
-    if (!data.success) throw new Error(data.error || 'Unknown error');
-    return data;
+    if (!res.ok && res.status !== 0) throw new Error('Request failed');
+    return { success: true };
   } catch (err) {
     console.error('Fetch error:', err);
     throw err;
