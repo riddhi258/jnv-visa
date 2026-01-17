@@ -156,6 +156,7 @@ async function sendToSheet(payload) {
         const res = await fetch('https://script.google.com/macros/s/AKfycbwjkrCYkN6YmUJOlIy_3qoGfgY3iX3pLpzBJuAw9q2RCxpiwWBMD_O0r4T49G8GlxY6/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            mode: 'no-cors',
             body: JSON.stringify(payload)
         });
 
