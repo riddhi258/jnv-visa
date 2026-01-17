@@ -150,18 +150,17 @@ async function handlePostJobSubmit(e) {
 // ===============================
 // GOOGLE SHEET API
 // ===============================
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyOW7kMQnDoS-s_0V_zAKJNyLNrJcbWa7jaj66nvmWGx9EGWf6D280tS4olD1k_xWDk/exec';
 async function sendToSheet(payload) {
   try {
-    const res = await fetch(GOOGLE_SHEET_URL, {
+    const res = await fetch('https://script.google.com/macros/s/AKfycbwjkrCYkN6YmUJOlIy_3qoGfgY3iX3pLpzBJuAw9q2RCxpiwWBMD_O0r4T49G8GlxY6/exec', {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
       body: JSON.stringify(payload)
     });
 
-    if (!res.ok && res.status !== 0) throw new Error('Request failed');
-    return { success: true };
+    if (!res.ok && res.status !== 0) throw new Error('Google Sheet error');
+    return res.status === 0 ? { success: true } : res.json();
   } catch (err) {
     console.error('Fetch error:', err);
     throw err;
