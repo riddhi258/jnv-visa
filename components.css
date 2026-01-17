@@ -1503,7 +1503,7 @@
 .file-info {
   display: none;
   margin-top: 6px;
-  padding: 6px;
+  padding: 20px;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
