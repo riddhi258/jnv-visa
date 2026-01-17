@@ -1502,8 +1502,8 @@
 
 .file-info {
   display: none;
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 6px;
+  padding: 12px;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
