@@ -152,17 +152,24 @@ async function handlePostJobSubmit(e) {
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
+    const url = 'https://script.google.com/macros/s/AKfycbznT65IPEA1shr7O66qaQSfzO-TDWYPz0IxOfGoerPqm_wbBx4UgYK6EvPx9_tQV1Q-/exec';
+    
     try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbznT65IPEA1shr7O66qaQSfzO-TDWYPz0IxOfGoerPqm_wbBx4UgYK6EvPx9_tQV1Q-/exec', {
+        // We use text/plain to avoid complex CORS preflight issues with Google Apps Script
+        await fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            mode: 'no-cors', 
+            cache: 'no-cache',
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8',
+            },
             body: JSON.stringify(payload)
         });
 
-        if (!res.ok) throw new Error('Google Sheet error');
-        return res.json();
+        // With no-cors, we can't read the response body, so we assume success if no error is thrown
+        return { success: true };
     } catch (err) {
-        console.error('Fetch error:', err);
+        console.error('Submission Error:', err);
         throw err;
     }
 }
