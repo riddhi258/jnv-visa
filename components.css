@@ -1502,10 +1502,10 @@
 
 .file-info {
   display: none;
-  margin-top: 12px;
-  padding: 12px;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
   background-color: var(--bg-secondary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
