@@ -1,3 +1,4 @@
+
 // ===============================
 // INIT
 // ===============================
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // MODALS
 // ===============================
 function initModals() {
+    
   const jobSeekerBtn = document.getElementById('jobSeekerBtn');
   const postJobBtn = document.getElementById('postJobBtn');
   const jobSeekerModal = document.getElementById('jobSeekerModal');
@@ -91,7 +93,7 @@ async function handleJobSeekerSubmit(e) {
       job_type: formData.get('job_type'),
       industry: formData.get('industry'),
       experience_years: formData.get('experience_years'),
-      resume: formData.get('resume') ? formData.get('resume').name : '', // lowercase 'resume'
+      Resume: formData.get('resume') ? formData.get('resume').name : '',
       message: formData.get('message')
     });
 
@@ -150,17 +152,15 @@ async function handlePostJobSubmit(e) {
 // ===============================
 async function sendToSheet(payload) {
   try {
-    const res = await fetch(
-      'https://script.google.com/macros/s/AKfycbx338sdaaITW_tf-BDHD9WBpFncFsmccBNYzmxh9BXE7JvaEUoMjj8h2j1rvSYKhKfr/exec', // your Google Script URL
-      {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }
-    );
+    const res = await fetch('https://script.google.com/macros/s/AKfycbwjkrCYkN6YmUJOlIy_3qoGfgY3iX3pLpzBJuAw9q2RCxpiwWBMD_O0r4T49G8GlxY6/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    });
 
-    return { success: true };
+    if (!res.ok && res.status !== 0) throw new Error('Google Sheet error');
+    return res.status === 0 ? { success: true } : res.json();
   } catch (err) {
     console.error('Fetch error:', err);
     throw err;
