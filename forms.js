@@ -151,26 +151,22 @@ async function handlePostJobSubmit(e) {
 // ===============================
 // GOOGLE SHEET API
 // ===============================
-async function sendToSheet(data) {
-  try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbznT65IPEA1shr7O66qaQSfzO-TDWYPz0IxOfGoerPqm_wbBx4UgYK6EvPx9_tQV1Q-/exec', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
+async function sendToSheet(payload) {
+    try {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbznT65IPEA1shr7O66qaQSfzO-TDWYPz0IxOfGoerPqm_wbBx4UgYK6EvPx9_tQV1Q-/exec', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            mode: 'no-cors',
+            body: JSON.stringify(payload)
+        });
 
-    const result = await response.json();
-    console.log('Success:', result);
-    return result;
-
-  } catch (err) {
-    console.error('Fetch error:', err);
-    return { success: false, error: err.message };
-  }
+        if (!res.ok && res.status !== 0) throw new Error('Google Sheet error');
+        return res.status === 0 ? { success: true } : res.json();
+    } catch (err) {
+        console.error('Fetch error:', err);
+        throw err;
+    }
 }
-
 
 // ===============================
 // FILE UPLOAD UI
@@ -238,11 +234,8 @@ function validatePhone(phone) {
 // ===============================
 function toggleLoading(btn, loading, text = '') {
     if (!btn) return;
-    if (loading && !btn.dataset.original) {
-        btn.dataset.original = btn.innerHTML;
-    }
     btn.disabled = loading;
     btn.innerHTML = loading
         ? `<i class="fas fa-spinner fa-spin"></i> ${text}`
-        : btn.dataset.original;
+        : btn.dataset.original || btn.innerHTML;
 }
