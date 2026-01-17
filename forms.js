@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   initModals();
   initForms();
-  initFileUploads();
+  initFileUploads(); // Ensure this function is defined
 });
 
 // ===============================
@@ -77,6 +77,12 @@ function initForms() {
 // JOB SEEKER
 // ===============================
 async function handleJobSeekerSubmit(e) {
+  const toggleLoading = (btn, isLoading, message) => {
+    if (btn) {
+      btn.textContent = isLoading ? message : 'Submit';
+      btn.disabled = isLoading;
+    }
+  };
   e.preventDefault();
   const formData = new FormData(e.target);
   const btn = e.target.querySelector('.btn-submit');
@@ -175,6 +181,13 @@ async function handleContactSubmit(e) {
   } finally {
     toggleLoading(btn, false);
   }
+}
+
+// ===============================
+// FILE UPLOADS
+// ===============================
+function initFileUploads() {
+  // Initialize file upload functionality here
 }
 
 // ===============================
