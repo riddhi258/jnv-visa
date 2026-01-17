@@ -93,7 +93,7 @@ async function handleJobSeekerSubmit(e) {
             job_type: formData.get('job_type'),
             industry: formData.get('industry'),
             experience_years: formData.get('experience_years'),
-            Resume: formData.get('resume') ? formData.get('resume').name : '',
+            resume: formData.get('resume') ? formData.get('resume').name : '',
             message: formData.get('message')
         });
 
@@ -156,7 +156,6 @@ async function sendToSheet(payload) {
         const res = await fetch('https://script.google.com/macros/s/AKfycbwjkrCYkN6YmUJOlIy_3qoGfgY3iX3pLpzBJuAw9q2RCxpiwWBMD_O0r4T49G8GlxY6/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            mode: 'no-cors',
             body: JSON.stringify(payload)
         });
 
