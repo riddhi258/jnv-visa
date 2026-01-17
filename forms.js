@@ -154,16 +154,13 @@ async function sendToSheet(payload) {
       'https://script.google.com/macros/s/AKfycbx338sdaaITW_tf-BDHD9WBpFncFsmccBNYzmxh9BXE7JvaEUoMjj8h2j1rvSYKhKfr/exec', // your Google Script URL
       {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload) // removed 'mode: no-cors'
+        body: JSON.stringify(payload)
       }
     );
 
-    const data = await res.json();
-
-    if (!data.success) throw new Error(data.error || 'Google Sheet error');
-
-    return data;
+    return { success: true };
   } catch (err) {
     console.error('Fetch error:', err);
     throw err;
