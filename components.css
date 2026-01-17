@@ -1501,19 +1501,18 @@
 }
 
 .file-info {
-  display: none;
   margin-top: 6px;
   padding: 12px;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
+  display: none;
 }
 
 .file-info.show {
   display: block;
 }
-
 
 .btn-submit {
   padding: var(--spacing-md) var(--spacing-xl);
