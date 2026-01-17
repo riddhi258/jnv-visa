@@ -1460,7 +1460,8 @@
 }
 .file-upload {
   position: relative;
-  padding: 10px 20px 20px 10px;
+  padding :20px;
+
 }
 
 .file-upload input[type="file"] {
@@ -1501,19 +1502,22 @@
 }
 
 .file-info {
-  margin-top: var(--spacing-sm);
-  padding: var(--spacing-sm);
+  width: 100%; 
+  margin: 36px 0 0 0;
+  padding: 12px;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
   display: none;
+  position: relative;
+  z-index: 5; 
+  pointer-events: none;
 }
 
 .file-info.show {
   display: block;
-}
-
+}   
 .btn-submit {
   padding: var(--spacing-md) var(--spacing-xl);
   font-size: var(--font-size-lg);
