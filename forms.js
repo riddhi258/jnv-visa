@@ -182,7 +182,7 @@ async function handleContactSubmit(e) {
 // ===============================
 async function sendToSheet(payload) {
   try {
-    const res = await fetch('https://script.google.com/macros/s/AKfycby2abLDHWn07R9LSj2v_EgK7q0gGhuRAFzQ3F8w9XZxK22BqniGKOXhjNtrAZY-j8UX/exec', {
+    const res = await fetch('https://script.google.com/macros/s/AKfycbyNq-779pCqPn3IC_uUvyvFATX-wOPHbbMXobsMqBgCA7KPJNJheMvNr3iWZdrcYCeo/exec', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       mode: 'no-cors',
