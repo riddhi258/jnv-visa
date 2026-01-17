@@ -233,6 +233,9 @@ function validatePhone(phone) {
 // ===============================
 function toggleLoading(btn, loading, text = '') {
     if (!btn) return;
+    if (loading && !btn.dataset.original) {
+        btn.dataset.original = btn.innerHTML;
+    }
     btn.disabled = loading;
     btn.innerHTML = loading
         ? `<i class="fas fa-spinner fa-spin"></i> ${text}`
