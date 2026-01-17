@@ -177,26 +177,25 @@ async function sendToSheet(payload) {
 // ===============================
 // FILE UPLOAD UI
 // ===============================
-function initFileUploads() {
-    document.querySelectorAll('input[type="file"]').forEach(input => {
-        input.addEventListener('change', e => {
-            updateFileInfo('resumeInfo', e.target.files[0]);
-        });
-    });
-}
-
 function updateFileInfo(id, file) {
     const el = document.getElementById(id);
     if (!el) return;
 
     if (!file) {
         el.innerHTML = '';
-        el.classList.remove('show');
+        el.style.display = 'none';
         return;
     }
 
     el.innerHTML = `<i class="fas fa-file-alt"></i> <strong>${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
-    el.classList.add('show');
+    el.style.display = 'block';
+}
+function initFileUploads() {
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+        input.addEventListener('change', e => {
+            updateFileInfo('resumeInfo', e.target.files[0]);
+        });
+    });
 }
 
 // ===============================
