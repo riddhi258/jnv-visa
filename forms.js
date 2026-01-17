@@ -153,7 +153,7 @@ async function handlePostJobSubmit(e) {
 // ===============================
 async function sendToSheet(payload) {
     try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbwjkrCYkN6YmUJOlIy_3qoGfgY3iX3pLpzBJuAw9q2RCxpiwWBMD_O0r4T49G8GlxY6/exec', {
+        const res = await fetch('https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbznT65IPEA1shr7O66qaQSfzO-TDWYPz0IxOfGoerPqm_wbBx4UgYK6EvPx9_tQV1Q-/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             mode: 'no-cors',
