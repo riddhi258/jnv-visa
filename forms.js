@@ -93,7 +93,7 @@ async function handleJobSeekerSubmit(e) {
             job_type: formData.get('job_type'),
             industry: formData.get('industry'),
             experience_years: formData.get('experience_years'),
-            resume: formData.get('resume') ? formData.get('resume').name : '',
+            Resume: formData.get('resume') ? formData.get('resume').name : '',
             message: formData.get('message')
         });
 
