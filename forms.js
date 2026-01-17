@@ -181,54 +181,17 @@ async function handleContactSubmit(e) {
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
-  try {
-    const res = await fetch('https://script.google.com/macros/s/AKfycby2abLDHWn07R9LSj2v_EgK7q0gGhuRAFzQ3F8w9XZxK22BqniGKOXhjNtrAZY-j8UX/exec', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      mode: 'no-cors',
-      body: JSON.stringify(payload)
-    });
+    try {
+        const res = await fetch('https://script.google.com/macros/s/AKfycby2abLDHWn07R9LSj2v_EgK7q0gGhuRAFzQ3F8w9XZxK22BqniGKOXhjNtrAZY-j8UX/exec', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
 
-    if (!res.ok && res.status !== 0) throw new Error('Google Sheet error');
-    return res.status === 0 ? { success: true } : res.json();
-  } catch (err) {
-    console.error('Fetch error:', err);
-    throw err;
-  }
-}
-
-// ===============================
-// FILE UPLOAD UI
-// ===============================
-function initFileUploads() {
-  document.querySelectorAll('input[type="file"]').forEach(input => {
-    input.addEventListener('change', e => {
-      updateFileInfo('resumeInfo', e.target.files[0]);
-    });
-  });
-}
-
-function updateFileInfo(id, file) {
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  if (!file) {
-    el.innerHTML = '';
-    el.classList.remove('show');
-    return;
-  }
-
-  el.innerHTML = `<strong>${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
-  el.classList.add('show');
-}
-
-// ===============================
-// HELPERS
-// ===============================
-function toggleLoading(btn, loading, text = '') {
-  if (!btn) return;
-  btn.disabled = loading;
-  btn.innerHTML = loading
-    ? `<i class="fas fa-spinner fa-spin"></i> ${text}`
-    : btn.dataset.original || btn.innerHTML;
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+    } catch (err) {
+        console.error('Fetch error:', err);
+        throw err;
+    }
 }
