@@ -177,26 +177,42 @@ async function sendToSheet(payload) {
 // ===============================
 // FILE UPLOAD UI
 // ===============================
+// ===============================
+// FILE UPLOAD HANDLER
+// ===============================
+
 function updateFileInfo(id, file) {
     const el = document.getElementById(id);
     if (!el) return;
 
+    // No file selected
     if (!file) {
         el.innerHTML = '';
         el.style.display = 'none';
         return;
     }
 
-    el.innerHTML = `<i class="fas fa-file-alt"></i> <strong>${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+    const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+
+    el.innerHTML = `
+        <i class="fas fa-file-alt"></i>
+        <strong>${file.name}</strong>
+        (${sizeMB} MB)
+    `;
     el.style.display = 'block';
 }
+
 function initFileUploads() {
     document.querySelectorAll('input[type="file"]').forEach(input => {
-        input.addEventListener('change', e => {
-            updateFileInfo('resumeInfo', e.target.files[0]);
+        input.addEventListener('change', function () {
+            updateFileInfo('resumeInfo', this.files[0]);
         });
     });
 }
+
+// IMPORTANT: initialize after DOM loads
+document.addEventListener('DOMContentLoaded', initFileUploads);
+
 
 // ===============================
 // VALIDATION
