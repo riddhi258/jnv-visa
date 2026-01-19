@@ -131,6 +131,7 @@ async function handlePostJobSubmit(e) {
             job_title: formData.get('job_title'),
             job_location: formData.get('job_location'),
             employment_type: formData.get('employment_type'),
+            salary_range: formData.get('salary_range'),
             sponsorship: formData.get('sponsorship'),
             message: formData.get('message')
         });
