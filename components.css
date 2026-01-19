@@ -434,7 +434,7 @@
 
   .industry-card,
   .service-card {
-    margin: 15 var(--spacing-sm);
+    margin: var(--spacing-sm);
   }
 
   .modal-header,
@@ -761,7 +761,7 @@
 
 /* Industries Section */
 .industries {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-3xl);
   background-color: #f9f9f9;
 }
 [data-theme="dark"] .industries {
