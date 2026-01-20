@@ -142,8 +142,6 @@ async function handlePostJobSubmit(e) {
             service: services.join(', '),
             job_type: formData.get('job_type'),
             salary_range: formData.get('salary_range'),
-            salary_from: formData.get('salary_from'),
-            salary_to: formData.get('salary_to'),
             work_location: formData.get('work_location'),
             start_date: formData.get('start_date'),
             skills: formData.get('skills'),
