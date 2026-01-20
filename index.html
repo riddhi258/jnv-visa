@@ -40,7 +40,7 @@
         </a>
       </div>
        <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href=".html" class="nav-link">Home</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
         <li><a href="recruiter.html" class="nav-link">Recruiters</a></li>
         <li><a href="healthcare.html" class="nav-link">Healthcare</a></li>
@@ -818,94 +818,188 @@
         Let's connect you with
         best candidates.
       </p>
-
       <form class="job-form" id="postJobForm">
 
-        <!-- Business Details -->
-        <h4>Business Details</h4>
+  <!-- 1️⃣ Company Information -->
+  <h4>Company Information</h4>
 
-        <div class="form-group">
-          <input type="text" id="businessName" name="business_name" required>
-          <label for="businessName">Business Name</label>
-        </div>
+  <div class="form-row">
+     <div class="form-group">
+                    <input type="text" id="company_name" name="company_name" required>
+                    <label for="company_name">Company Name</label>
+                </div>
 
-        <div class="form-group">
-          <input type="text" id="contactPerson" name="contact_person" required>
-          <label for="contactPerson">Contact Person Name</label>
-        </div>
+    <div class="form-group">
+                    <input type="text" id="trading_name" name="trading_name" required>
+                    <label for="trading_name">Trading Name(if different)</label>
+                </div>
+  </div>
 
-        <div class="form-group">
-          <input type="email" id="businessEmail" name="email" required>
-          <label for="businessEmail">Email Address</label>
-        </div>
+    <div class="form-group">
+      <select id="industry" name="industry" required>
+        <option value="">Select Industry</option>
+        <option>Doctors & Specialists</option>
+        <option>Nurses & Midwives</option>
+        <option>Allied Health</option>
+        <option>Lab & Technical</option>
+        <option>Support & Community</option>
+        <option>Other</option>
+      </select>
+      <label for="industry">Industry </label>
+    </div>
 
-        <div class="form-group">
-          <input type="tel" id="businessPhone" name="phone" required>
-          <label for="businessPhone">Phone Number</label>
-        </div>
-
-        <!-- Job Details -->
-        <h4>Job Details</h4>
-
-        <div class="form-group">
-          <input type="text" id="jobTitle" name="job_title" required>
-          <label for="jobTitle">Job Title</label>
-        </div>
-
-        <div class="form-group">
-          <input type="text" id="jobLocation" name="job_location" required>
-          <label for="jobLocation">Job Location</label>
-        </div>
-
-        <div class="form-group">
-          <select id="employmentType" name="employment_type" required>
-            <option value="">Select Employment Type</option>
-            <option value="full-time">Full-time</option>
-            <option value="part-time">Part-time</option>
-            <option value="casual">Casual</option>
-          </select>
-          <label for="employmentType">Employment Type</label>
-        </div>
-
-         <div class="form-group">
-          <select id="salaryRange" name="salary_range" required>
-            <option value="">Select Salary Range</option>
-            <option value="0-50k">90-100k</option>
-            <option value="50k-100k">100k-110k</option>
-            <option value="50k-100k">110k-120k</option>
-            <option value="100k+">120k more</option>
-          </select>
-          <label for="salaryRange">Salary Range</label>
-        </div>
+    <div class="form-group">
+      <input type="url" id="website" name="website" required>
+      <label for="website">Company Website</label>
+    </div>
 
 
-        <!-- Sponsorship -->
-        <h4>Sponsorship</h4>
+  <div class="form-group">
+    <input type="text" id="businessLocation" name="business_location" required>
+    <label for="businessLocation">Business Location (State & Suburb)</label>
+  </div>
 
-        <div class="form-group">
-          <select id="sponsorship" name="sponsorship" required>
-            <option value="">Open to Sponsorship?</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="not-sure">Not Sure</option>
-          </select>
-          <label for="sponsorship">Open to Sponsorship?</label>
-        </div>
+  <!-- 2️⃣ Contact Person Details -->
+  <h4>Contact Person Details</h4>
 
-        <!-- Message -->
-        <h4>Message</h4>
+    <div class="form-group">
+      <input type="text" id="fullName" name="full_name" required >
+      <label for="fullName">Full Name </label>
+    </div>
 
-        <div class="form-group">
-          <textarea id="message" name="message" rows="4"></textarea>
-          <label for="message">Short Message (Optional)</label>
-        </div>
+    <div class="form-group">
+      <input type="text" id="jobTitleContact" name="job_title_contact" required>
+      <label for="jobTitleContact">Job Title</label>
+    </div>
 
-        <button type="submit" class="btn btn-primary btn-submit">
-          <i class="fas fa-bullhorn"></i>
-          Submit Inquiry
-        </button>
+    <div class="form-group">
+      <input type="email" id="email" name="email" required>
+      <label for="email">Email Address </label>
+    </div>
 
-      </form>
+    <div class="form-group">
+      <input type="tel" id="phone" name="phone" required>
+      <label for="phone">Phone Number </label>
+    </div>
+
+
+  <!-- 3️⃣ Hiring Requirement Details -->
+  <h4>Hiring Requirement Details</h4>
+
+  <div class="form-row">
+    <div class="form-group">
+      <input type="text" id="positionTitle" name="position_title" required>
+      <label for="positionTitle">Position / Job Title </label>
+    </div>
+  
+    <div class="form-group">
+      <input type="number" id="staffRequired" name="staff_required" required>
+      <label for="staffRequired">Number of Staff Required</label>
+    </div>
+  </div>
+    <div class="form-group">
+    <h4>Type of Service Required</h4><br>
+    <input type="checkbox" name="service[]" value="labour_hire"> Labour Hire (Casual / Temporary)<br>
+    <input type="checkbox" name="service[]" value="contract_staff"> Contract Staff<br>
+    <input type="checkbox" name="service[]" value="permanent"> Permanent Recruitment<br>
+    <input type="checkbox" name="service[]" value="payroll"> Payroll / Workforce Management<br>
+    <input type="checkbox" name="service[]" value="multiple"> Multiple Services
+  </div>
+
+       <div class="form-group">
+                    <select id="jobType" name="job_type" required>
+                        <option value="">Select Job Type</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="part-time">Part Time</option>
+                        <option value="contract">Contract</option>
+                        <option value="casual">Casual</option>
+                    </select>
+                    <label for="jobType">Job Type Looking For</label>
+                </div>
+
+
+  <!-- 4️⃣ Salary / Pay Rate -->
+  <h4>Salary / Pay Rate</h4>
+    <div class="form-group">
+                    <select id="salary_range" name="salary_range" required>
+                        <option value="">Select Salary Range</option>
+                        <option value="55k-65k">$55,000 - $65,000</option>
+                        <option value="66k-75k">$66,000 - $75,000 </option>
+                        <option value="76k-90k">$76,000 - $90,000</option>
+                        <option value="90k-110k">$91,000 - $110,000</option>
+                        <option value="110k-140k">$110,000 - $140,000</option>
+                        <option value="140k+">$140,000+</option>
+                    </select>
+                    <label for="salary_range">Salary Range</label>
+                </div>
+
+
+  <div class="form-row">
+    <div class="form-group">
+      <input type="number" id="salaryFrom" name="salary_from" required>
+      <label for="salaryFrom">From ($)</label>
+    </div>
+
+    <div class="form-group">
+      <input type="number" id="salaryTo" name="salary_to" required >
+      <label for="salaryTo">To ($)</label>
+    </div>
+  </div>
+
+  <!-- 5️⃣ Work Details -->
+  <h4>Work Details</h4>
+
+  <div class="form-group">
+    <input type="text" id="workLocation" name="work_location" required>
+    <label for="workLocation">Work Location </label>
+  </div>
+          <div class="form-group">
+                    <select id="jobType" name="job_type" required>
+                        <option value="">Start Date Required</option>
+                        <option value="Immediate">Immediate</option>
+                        <option value="Within 1–2 weeks">Within 1–2 weeks</option>
+                        <option value="contract">Flexible</option>
+                    </select>
+                    <label for="jobType">Start Date Required</label>
+                </div>
+
+  <!-- 6️⃣ Skills & Compliance -->
+  <h4>Skills & Compliance Requirements</h4>
+  
+  <div class="form-group">
+    <textarea id="skills" name="skills" required ></textarea>
+    <label for="skills">Key Skills / Experience Required </label>
+  </div>
+ <div class="form-group">
+    <h4>Mandatory Requirements</h4><br>
+    <input type="checkbox" name="requirements[]" value="white_card"> White Card<br/>
+    <input type="checkbox" name="requirements[]" value="trade_license"> Trade Licence<br/>
+    <input type="checkbox" name="requirements[]" value="police_check"> Police Check<br/>
+    <input type="checkbox" name="requirements[]" value="medical"> Medical / Drug Test<br/>
+    <input type="checkbox" name="requirements[]" value="work_rights"> Right to Work in Australia<br/>
+  </div>
+  <!-- 7️⃣ Additional Notes -->
+  <h4>Additional Notes</h4>
+
+  <div class="form-group">
+    <textarea id="additionalNotes" name="additional_notes" required></textarea>
+    <label for="additionalNotes">Any additional information?</label>
+  </div>
+
+  <!-- 8️⃣ Consent -->
+  <div class="form-group">
+    <label for="consent">
+    </label>
+    <input type="checkbox" name="requirements[]" value="consent"> I consent to JobsNVisa collecting and using my information to process this enquiry.
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-submit">
+    <i class="fas fa-paper-plane"></i>
+    Submit Employer Enquiry
+  </button>
+
+</form>
+
     </div>
   </div>
 </div>
