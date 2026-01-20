@@ -117,41 +117,58 @@ async function handleJobSeekerSubmit(e) {
 // ===============================
 async function handlePostJobSubmit(e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const btn = e.target.querySelector('.btn-submit');
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const btn = form.querySelector('.btn-submit');
+
     toggleLoading(btn, true, 'Posting...');
 
     try {
-        // Collect checkbox values as arrays
+        // Collect checkbox values as ARRAYS
         const services = formData.getAll('service[]');
         const requirements = formData.getAll('requirements[]');
 
         await sendToSheet({
             type: 'post-job',
+
+            // Company Information
             company_name: formData.get('company_name'),
             trading_name: formData.get('trading_name'),
             industry: formData.get('industry'),
             website: formData.get('website'),
             business_location: formData.get('business_location'),
+
+            // Contact Person
             full_name: formData.get('full_name'),
             job_title_contact: formData.get('job_title_contact'),
             email: formData.get('email'),
             phone: formData.get('phone'),
+
+            // Hiring Requirement
             position_title: formData.get('position_title'),
             staff_required: formData.get('staff_required'),
-            service: services.join(', '),
+            service: services,            // ✅ ARRAY
             job_type: formData.get('job_type'),
+
+            // Salary
             salary_range: formData.get('salary_range'),
+
+            // Work Details
             work_location: formData.get('work_location'),
             start_date: formData.get('start_date'),
+
+            // Skills & Compliance
             skills: formData.get('skills'),
-            requirements: requirements.join(', '),
+            requirements: requirements,  // ✅ ARRAY
+
+            // Additional Notes
             additional_notes: formData.get('additional_notes')
         });
 
         closeModal(document.getElementById('postJobModal'));
         showSuccessModal('Job posted successfully!');
-        e.target.reset();
+        form.reset();
 
     } catch (err) {
         alert('Submission failed. Please try again.');
@@ -160,6 +177,7 @@ async function handlePostJobSubmit(e) {
         toggleLoading(btn, false);
     }
 }
+
 
 
 // ===============================
