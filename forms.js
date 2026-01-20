@@ -122,18 +122,33 @@ async function handlePostJobSubmit(e) {
     toggleLoading(btn, true, 'Posting...');
 
     try {
+        // Collect checkbox values as arrays
+        const services = formData.getAll('service[]');
+        const requirements = formData.getAll('requirements[]');
+
         await sendToSheet({
             type: 'post-job',
-            business_name: formData.get('business_name'),
-            contact_person: formData.get('contact_person'),
+            company_name: formData.get('company_name'),
+            trading_name: formData.get('trading_name'),
+            industry: formData.get('industry'),
+            website: formData.get('website'),
+            business_location: formData.get('business_location'),
+            full_name: formData.get('full_name'),
+            job_title_contact: formData.get('job_title_contact'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            job_title: formData.get('job_title'),
-            job_location: formData.get('job_location'),
-            employment_type: formData.get('employment_type'),
+            position_title: formData.get('position_title'),
+            staff_required: formData.get('staff_required'),
+            service: services.join(', '),
+            job_type: formData.get('job_type'),
             salary_range: formData.get('salary_range'),
-            sponsorship: formData.get('sponsorship'),
-            message: formData.get('message')
+            salary_from: formData.get('salary_from'),
+            salary_to: formData.get('salary_to'),
+            work_location: formData.get('work_location'),
+            start_date: formData.get('start_date'),
+            skills: formData.get('skills'),
+            requirements: requirements.join(', '),
+            additional_notes: formData.get('additional_notes')
         });
 
         closeModal(document.getElementById('postJobModal'));
