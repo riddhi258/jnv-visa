@@ -135,7 +135,7 @@ async function handlePostJobSubmit(e) {
             // Company Information
             company_name: formData.get('company_name'),
             trading_name: formData.get('trading_name'),
-            industry: formData.get('Industry'),
+            industry: formData.get('industry'),
             website: formData.get('website'),
             business_location: formData.get('business_location'),
 
