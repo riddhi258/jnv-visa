@@ -1546,7 +1546,7 @@
   height: 24px;
   min-width: 24px;
   min-height: 24px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom:10px;
   box-sizing: border-box;   /* IMPORTANT */
   border: 2px solid #cbd5e1;
@@ -2484,7 +2484,8 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   border: 1px solid rgba(148, 163, 184, 0.15);
 }
 /* Card text */
-[data-theme="dark"] .migration-card h3 {
+[data-theme="dark"] .migration-card h3,
+.form-group h4 {
   color: #f1f5f9;
 }
 
