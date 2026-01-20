@@ -135,15 +135,15 @@ async function handlePostJobSubmit(e) {
             // Company Information
             company_name: formData.get('company_name'),
             trading_name: formData.get('trading_name'),
-            industry: formData.get('industry'),
+            industry: formData.get('Industry'),
             website: formData.get('website'),
             business_location: formData.get('business_location'),
 
             // Contact Person
-            full_name: formData.get('full_name'),
+            full_name: formData.get('Full_name'),
             job_title_contact: formData.get('job_title_contact'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
+            email: formData.get('Email'),
+            phone: formData.get('Phone'),
 
             // Hiring Requirement
             position_title: formData.get('position_title'),
@@ -184,7 +184,7 @@ async function handlePostJobSubmit(e) {
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
-    const url = 'https://script.google.com/macros/s/AKfycbznT65IPEA1shr7O66qaQSfzO-TDWYPz0IxOfGoerPqm_wbBx4UgYK6EvPx9_tQV1Q-/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbw_cX0fRHu_tUvq6m8sp1D4Q6IVkadsyg9hALV4bqGbX_QHctOFBcsKks2DKaLaSApQ/exec';
     
     try {
         // We use text/plain to avoid complex CORS preflight issues with Google Apps Script
