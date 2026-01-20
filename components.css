@@ -1961,7 +1961,7 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   color: var(--primary-green);
 }
 
-[data-theme="dark"] .faq-question {
+[data-theme="dark"] .faq-question,.form-group input[type="checkbox"] {
  color: #ffffff;
 }
 /* Mobile */
