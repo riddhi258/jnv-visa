@@ -140,10 +140,10 @@ async function handlePostJobSubmit(e) {
             business_location: formData.get('business_location'),
 
             // Contact Person
-            full_name: formData.get('Full_name'),
+            full_name: formData.get('full_name'),
             job_title_contact: formData.get('job_title_contact'),
-            email: formData.get('Email'),
-            phone: formData.get('Phone'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
 
             // Hiring Requirement
             position_title: formData.get('position_title'),
