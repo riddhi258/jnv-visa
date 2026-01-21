@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // MODALS
 // ===============================
 function initModals() {
-        
     const jobSeekerBtn = document.getElementById('jobSeekerBtn');
     const postJobBtn = document.getElementById('postJobBtn');
     const jobSeekerModal = document.getElementById('jobSeekerModal');
@@ -68,21 +67,28 @@ function initForms() {
 
     document.getElementById('postJobForm')
         ?.addEventListener('submit', handlePostJobSubmit);
-
-    document.getElementById('contactForm')
-        ?.addEventListener('submit', handleContactSubmit);
 }
 
 // ===============================
-// JOB SEEKER
+// JOB SEEKER (UPDATED)
 // ===============================
 async function handleJobSeekerSubmit(e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const btn = e.target.querySelector('.btn-submit');
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const btn = form.querySelector('.btn-submit');
     toggleLoading(btn, true, 'Submitting...');
 
     try {
+        const resumeFile = formData.get('resume');
+        let resumeBase64 = "";
+
+        // Convert resume to base64
+        if (resumeFile && resumeFile.size > 0) {
+            resumeBase64 = await fileToBase64(resumeFile);
+        }
+
         await sendToSheet({
             type: 'job-seeker',
             full_name: formData.get('full_name'),
@@ -93,7 +99,7 @@ async function handleJobSeekerSubmit(e) {
             job_type: formData.get('job_type'),
             industry: formData.get('industry'),
             experience_years: formData.get('experience_years'),
-            Resume: formData.get('resume') ? formData.get('resume').name : '',
+            Resume: resumeBase64, // ✅ BASE64 FILE
             message: formData.get('message')
         });
 
@@ -101,7 +107,8 @@ async function handleJobSeekerSubmit(e) {
         showSuccessModal(
             'Thank you for your application! We will contact you within 24 hours.'
         );
-        e.target.reset();
+
+        form.reset();
         updateFileInfo('resumeInfo', null);
 
     } catch (err) {
@@ -113,7 +120,7 @@ async function handleJobSeekerSubmit(e) {
 }
 
 // ===============================
-// POST JOB
+// POST JOB (UNCHANGED)
 // ===============================
 async function handlePostJobSubmit(e) {
     e.preventDefault();
@@ -125,44 +132,29 @@ async function handlePostJobSubmit(e) {
     toggleLoading(btn, true, 'Posting...');
 
     try {
-        // Collect checkbox values as ARRAYS
         const services = formData.getAll('service[]');
         const requirements = formData.getAll('requirements[]');
 
         await sendToSheet({
             type: 'post-job',
-
-            // Company Information
             company_name: formData.get('company_name'),
             trading_name: formData.get('trading_name'),
             industry: formData.get('industry'),
             website: formData.get('website'),
             business_location: formData.get('business_location'),
-
-            // Contact Person
             full_name: formData.get('full_name'),
             job_title_contact: formData.get('job_title_contact'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-
-            // Hiring Requirement
             position_title: formData.get('position_title'),
             staff_required: formData.get('staff_required'),
-            service: services,            // ✅ ARRAY
+            service: services,
             job_type: formData.get('job_type'),
-
-            // Salary
             salary_range: formData.get('salary_range'),
-
-            // Work Details
             work_location: formData.get('work_location'),
             start_date: formData.get('start_date'),
-
-            // Skills & Compliance
             skills: formData.get('skills'),
-            requirements: requirements,  // ✅ ARRAY
-
-            // Additional Notes
+            requirements: requirements,
             additional_notes: formData.get('additional_notes')
         });
 
@@ -178,32 +170,20 @@ async function handlePostJobSubmit(e) {
     }
 }
 
-
-
 // ===============================
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
     const url = 'https://script.google.com/macros/s/AKfycbw_cX0fRHu_tUvq6m8sp1D4Q6IVkadsyg9hALV4bqGbX_QHctOFBcsKks2DKaLaSApQ/exec';
-    
-    try {
-        // We use text/plain to avoid complex CORS preflight issues with Google Apps Script
-        await fetch(url, {
-            method: 'POST',
-            mode: 'no-cors', 
-            cache: 'no-cache',
-            headers: {
-                'Content-Type': 'text/plain;charset=utf-8',
-            },
-            body: JSON.stringify(payload)
-        });
 
-        // With no-cors, we can't read the response body, so we assume success if no error is thrown
-        return { success: true };
-    } catch (err) {
-        console.error('Submission Error:', err);
-        throw err;
-    }
+    await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+    });
+
+    return { success: true };
 }
 
 // ===============================
@@ -222,6 +202,7 @@ function updateFileInfo(id, file) {
     el.innerHTML = `<i class="fas fa-file-alt"></i> <strong>${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
     el.style.display = 'block';
 }
+
 function initFileUploads() {
     document.querySelectorAll('input[type="file"]').forEach(input => {
         input.addEventListener('change', e => {
@@ -231,29 +212,33 @@ function initFileUploads() {
 }
 
 // ===============================
+// FILE → BASE64 HELPER (NEW)
+// ===============================
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+    });
+}
+
+// ===============================
 // VALIDATION
 // ===============================
 function initValidation() {
-    const emailInputs = document.querySelectorAll('input[type="email"]');
-    const phoneInputs = document.querySelectorAll('input[type="tel"]');
-
-    emailInputs.forEach(input => {
+    document.querySelectorAll('input[type="email"]').forEach(input => {
         input.addEventListener('blur', function () {
-            if (this.value && !validateEmail(this.value)) {
-                this.style.borderColor = 'var(--error)';
-            } else {
-                this.style.borderColor = '';
-            }
+            this.style.borderColor =
+                this.value && !validateEmail(this.value) ? 'var(--error)' : '';
         });
     });
 
-    phoneInputs.forEach(input => {
+    document.querySelectorAll('input[type="tel"]').forEach(input => {
         input.addEventListener('blur', function () {
-            if (this.value && !validatePhone(this.value)) {
-                this.style.borderColor = 'var(--error)';
-            } else {
-                this.style.borderColor = '';
-            }
+            this.style.borderColor =
+                this.value && !validatePhone(this.value) ? 'var(--error)' : '';
         });
     });
 }
@@ -267,7 +252,7 @@ function validatePhone(phone) {
 }
 
 // ===============================
-// HELPERS
+// LOADING BUTTON
 // ===============================
 function toggleLoading(btn, loading, text = '') {
     if (!btn) return;
@@ -277,5 +262,5 @@ function toggleLoading(btn, loading, text = '') {
     btn.disabled = loading;
     btn.innerHTML = loading
         ? `<i class="fas fa-spinner fa-spin"></i> ${text}`
-        : btn.dataset.original || btn.innerHTML;
+        : btn.dataset.original;
 }
