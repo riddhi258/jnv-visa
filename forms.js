@@ -80,9 +80,28 @@ async function handleJobSeekerSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const btn = e.target.querySelector('.btn-submit');
+    const fileInput = e.target.querySelector('input[type="file"]');
+    const file = fileInput.files[0];
+
     toggleLoading(btn, true, 'Submitting...');
 
     try {
+        let fileData = null;
+
+        // Convert file to Base64 if it exists
+        if (file) {
+            fileData = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve({
+                    base64: reader.result.split(',')[1], // Remove metadata prefix
+                    type: file.type,
+                    name: file.name
+                });
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
         await sendToSheet({
             type: 'job-seeker',
             full_name: formData.get('full_name'),
@@ -93,14 +112,13 @@ async function handleJobSeekerSubmit(e) {
             job_type: formData.get('job_type'),
             industry: formData.get('industry'),
             experience_years: formData.get('experience_years'),
-            Resume: formData.get('resume') ? formData.get('resume').name : '',
-            message: formData.get('message')
+            message: formData.get('message'),
+            // Pass the file data object here
+            resumeFile: fileData 
         });
 
         closeModal(document.getElementById('jobSeekerModal'));
-        showSuccessModal(
-            'Thank you for your application! We will contact you within 24 hours.'
-        );
+        showSuccessModal('Thank you! Your application and resume have been received.');
         e.target.reset();
         updateFileInfo('resumeInfo', null);
 
@@ -111,7 +129,6 @@ async function handleJobSeekerSubmit(e) {
         toggleLoading(btn, false);
     }
 }
-
 // ===============================
 // POST JOB
 // ===============================
