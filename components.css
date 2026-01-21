@@ -2552,6 +2552,13 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   font-weight: 500;
 }
 
+[data-theme="dark"] .dropdown-menu a:hover {
+  color: #22c55e;
+  display: block;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-weight: 500;
+}
 .dropdown-menu a:hover {
   background: #f5f7fa;
   color: var(--primary);
