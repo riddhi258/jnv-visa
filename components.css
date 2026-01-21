@@ -974,7 +974,6 @@
 /* Services Section */
 .services {
   padding: var(--spacing-3xl) 0;
-  background-color: var(--bg-secondary);
 }
 
 .services-grid {
