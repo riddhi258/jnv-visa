@@ -1,24 +1,24 @@
-import os
+import os 
 from PIL import Image
 
 def compress_images(
     input_folder,
     output_folder=None,
-    quality=30,          # Aggressive compression
+    quality=60,
     max_width=None,
     max_height=None,
-    force_webp=True      # Convert everything to WebP for smallest size
+    keep_format=True
 ):
     """
-    Compress images to the smallest possible file size.
+    Compresses all image files in a folder.
 
     Parameters:
         input_folder (str): Folder containing images.
-        output_folder (str): Output folder. If None, overwrite originals.
-        quality (int): Lossy quality (lower = smaller files).
+        output_folder (str): Optional output folder. If None, images overwrite.
+        quality (int): JPEG quality (1-95). Lower = more compression.
         max_width (int): Optional resize max width.
         max_height (int): Optional resize max height.
-        force_webp (bool): Convert all images to WebP.
+        keep_format (bool): If True keeps original format, else converts to JPEG.
     """
 
     if output_folder:
@@ -26,7 +26,7 @@ def compress_images(
 
     supported_ext = [".jpg", ".jpeg", ".png", ".webp"]
 
-    for root, _, files in os.walk(input_folder):
+    for root, dirs, files in os.walk(input_folder):
         for file in files:
             ext = os.path.splitext(file)[1].lower()
             if ext not in supported_ext:
@@ -35,52 +35,29 @@ def compress_images(
             input_path = os.path.join(root, file)
             rel_path = os.path.relpath(root, input_folder)
 
+            # Output path
             if output_folder:
                 out_dir = os.path.join(output_folder, rel_path)
                 os.makedirs(out_dir, exist_ok=True)
-                output_file = os.path.splitext(file)[0] + ".webp"
-                output_path = os.path.join(out_dir, output_file)
+                output_path = os.path.join(out_dir, file)
             else:
                 output_path = input_path
 
             try:
                 img = Image.open(input_path)
 
-                # Strip metadata
-                img.info.pop("exif", None)
-                img.info.pop("icc_profile", None)
-
-                # Resize aggressively if requested
+                # Optional resizing
                 if max_width or max_height:
-                    img.thumbnail(
-                        (max_width or img.width, max_height or img.height),
-                        Image.LANCZOS
-                    )
+                    img.thumbnail((max_width or img.width, max_height or img.height))
 
-                # Convert to RGB (required for aggressive compression)
-                if img.mode in ("RGBA", "P"):
-                    img = img.convert("RGB")
+                # Format handling
+                save_format = img.format if keep_format else "JPEG"
 
-                # Save as WebP (smallest practical format)
-                if force_webp:
-                    img.save(
-                        output_path,
-                        "WEBP",
-                        quality=quality,
-                        method=6,      # Slowest, best compression
-                        optimize=True
-                    )
-
+                # PNG compression
+                if save_format == "PNG":
+                    img.save(output_path, optimize=True)
                 else:
-                    # JPEG fallback
-                    img.save(
-                        output_path,
-                        "JPEG",
-                        quality=quality,
-                        optimize=True,
-                        subsampling=2,   # 4:2:0
-                        progressive=False
-                    )
+                    img.save(output_path, optimize=True, quality=quality)
 
                 print(f"Compressed: {input_path} -> {output_path}")
 
@@ -89,11 +66,12 @@ def compress_images(
 
 
 if __name__ == "__main__":
+    # Example usage
     compress_images(
-        input_folder="",
-        output_folder="",
-        quality=30,
+        input_folder="/assets/Orthopedist.png",
+        output_folder="/assets/Orthopedist.png",  # set None to overwrite
+        quality=15,
         max_width=1920,
         max_height=1080,
-        force_webp=True
+        keep_format=True
     )
