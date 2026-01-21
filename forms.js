@@ -184,7 +184,7 @@ async function handlePostJobSubmit(e) {
 // GOOGLE SHEET API
 // ===============================
 async function sendToSheet(payload) {
-    const url = 'https://script.google.com/macros/s/AKfycbw_cX0fRHu_tUvq6m8sp1D4Q6IVkadsyg9hALV4bqGbX_QHctOFBcsKks2DKaLaSApQ/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbxyVCEpK49jaPsK_7Sdn35OmGUQ_DfFXGnqQxE4MbqWyBV0FyOtFNR8rkb-XfXPM7lhjw/exec';
     
     try {
         // We use text/plain to avoid complex CORS preflight issues with Google Apps Script
