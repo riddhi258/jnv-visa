@@ -2519,3 +2519,58 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
 [data-theme="dark"] .migration-card .card-btn:hover {
   background: linear-gradient(135deg, #16a34a, #22c55e);
 }
+
+/* Dropdown wrapper */
+.nav-item.dropdown {
+  position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 8px 0;
+  z-index: 999;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f7fa;
+  color: var(--primary);
+}
+
+/* Desktop hover */
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile click */
+.nav-item.dropdown.active .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown arrow */
+.dropdown-toggle i {
+  font-size: 12px;
+  margin-left: 6px;
+}

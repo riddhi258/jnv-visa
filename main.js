@@ -340,6 +340,17 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+//dropdown menu for services section
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        this.parentElement.classList.toggle('active');
+      }
+    });
+  });
+
 // faq section - toggle answers
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
