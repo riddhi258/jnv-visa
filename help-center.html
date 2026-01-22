@@ -32,11 +32,11 @@
           <img src="dark.svg" width="300" height="auto" alt="JobsNVisa Logo" class="logo-image" />
         </a>
       </div>
-      <ul class="nav-menu">
+                <ul class="nav-menu">
 
-        <li>
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
+  <li>
+    <a href="index.html" class="nav-link">Home</a>
+  </li>
 
   <!-- SERVICES DROPDOWN -->
   <li class="nav-item dropdown">
@@ -49,23 +49,23 @@
     </ul>
   </li>
 
-        <li>
-          <a href="recruiter.html" class="nav-link">Recruiters</a>
-        </li>
+  <li>
+    <a href="recruiter.html" class="nav-link">Recruiters</a>
+  </li>
 
-        <li>
-          <a href="healthcare.html" class="nav-link">Healthcare</a>
-        </li>
+  <li>
+    <a href="healthcare.html" class="nav-link">Healthcare</a>
+  </li>
 
-        <li>
-          <a href="jobs.html" class="nav-link">Careers</a>
-        </li>
+  <li>
+    <a href="jobs.html" class="nav-link">Careers</a>
+  </li>
 
-        <li>
-          <a href="resouces.html" class="nav-link">Blogs</a>
-        </li>
+  <li>
+    <a href="resouces.html" class="nav-link">Blogs</a>
+  </li>
 
-      </ul>
+</ul>
       <div class="nav-controls">
         <button class="theme-toggle" id="themeToggle">
           <i class="fas fa-moon"></i>
@@ -163,56 +163,27 @@
   </section>
 
   <!-- FAQ Section -->
-<section class="faq-section">
-
-  <!-- INLINE CSS -->
-  <style>
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-    }
-
-    .faq-question {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question i {
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.active .faq-question i {
-      transform: rotate(180deg);
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
-
-  <div class="container">
-    <div class="section-header">
-      <h2>Frequently Asked Questions</h2>
-      <p>Find answers to the most common questions</p>
-    </div>
-
-    <div class="faq-content">
-
-      <div class="faq-categories">
-        <button class="faq-category active" data-category="general">General</button>
-        <button class="faq-category" data-category="applications">Applications</button>
-        <button class="faq-category" data-category="visas">Visas</button>
-        <button class="faq-category" data-category="employment">Employment</button>
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to the most common questions</p>
       </div>
+      <div class="faq-content">
+        <div class="faq-categories">
+          <button class="faq-category active" data-category="general">
+            General
+          </button>
+          <button class="faq-category" data-category="applications">
+            Applications
+          </button>
+          <button class="faq-category" data-category="visas">Visas</button>
+          <button class="faq-category" data-category="employment">
+            Employment
+          </button>
+        </div>
 
-    <div class="faq-items" id="general">
+        <div class="faq-items" id="general">
           <div class="faq-item">
             <div class="faq-question">
               <h3>What is JobsNVisa?</h3>
@@ -357,47 +328,8 @@
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <!-- INLINE SCRIPT -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-      /* CATEGORY SWITCH */
-      document.querySelectorAll('.faq-category').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const target = this.dataset.category;
-
-          document.querySelectorAll('.faq-category')
-            .forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-
-          document.querySelectorAll('.faq-items')
-            .forEach(box => box.classList.toggle('hidden', box.id !== target));
-        });
-      });
-
-      /* FAQ TOGGLE */
-      document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function () {
-          const item = this.closest('.faq-item');
-          const isOpen = item.classList.contains('active');
-
-          document.querySelectorAll('.faq-item')
-            .forEach(i => i.classList.remove('active'));
-
-          if (!isOpen) item.classList.add('active');
-        });
-      });
-
-    });
-  </script>
-
-</section>
-
-
+  </section>
 
   <!-- Contact Support -->
   <section class="contact-support">
@@ -430,18 +362,13 @@
           <p>Send us your questions via email</p>
           <div class="support-details">
             <p>
-              <strong><a href="mailto:info@jobsnvisa.com.au" style="
-                        display:inline-block;                        
-                        font-weight:600;
-                        cursor:pointer;
-                      " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-                  Send Email
-                </a>
-              </strong>
+              <strong><a href="mailto:info@jobsnvisa.com.au">info@jobsnvisa.com.au</a></strong>
             </p>
             <p>Response within 24 hours</p>
           </div>
-          <button class="btn btn-secondary"><a href="mailto:info@jobsnvisa.com.au">Send Email</a></button>
+          <a href="mailto:info@jobsnvisa.com.au">
+          <button class="btn btn-secondary" style="display: inline-block;">Send Email</button>
+          </a>
         </div>
 
         <div class="support-card">
@@ -453,9 +380,8 @@
           <div class="support-details">
             <p><strong>Available Now</strong></p>
             <p>Average response: 2 minutes</p>
-          </div><a
-            href="https://cdn.botpress.cloud/webchat/v3.5/shareable.html?configUrl=https://files.bpcontent.cloud/2026/01/06/02/20260106020029-OJAZF2JV.json">
-            <button class="btn btn-primary">Start Chat</button></a>
+          </div><a href="https://cdn.botpress.cloud/webchat/v3.5/shareable.html?configUrl=https://files.bpcontent.cloud/2026/01/06/02/20260106020029-OJAZF2JV.json">
+          <button class="btn btn-primary">Start Chat</button></a>
         </div>
       </div>
     </div>
@@ -514,7 +440,7 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-content">
-          <p>&copy; 2025 JobsNVisa. All rights reserved.</p>
+          <p>&copy; 2026 JobsNVisa. All rights reserved.</p>
           <p>Licensed Migration Agent | Registered Employment Services</p>
         </div>
       </div>
