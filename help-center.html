@@ -42,7 +42,7 @@
   <!-- SERVICES DROPDOWN -->
   <li class="nav-item dropdown">
     <a href="#" class="nav-link dropdown-toggle">
-      Services
+      Services 
     </a>
     <ul class="dropdown-menu">
       <li><a href="services.html">Recruiter Services</a></li>
@@ -164,27 +164,56 @@
   </section>
 
   <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Frequently Asked Questions</h2>
-        <p>Find answers to the most common questions</p>
-      </div>
-      <div class="faq-content">
-        <div class="faq-categories">
-          <button class="faq-category active" data-category="general">
-            General
-          </button>
-          <button class="faq-category" data-category="applications">
-            Applications
-          </button>
-          <button class="faq-category" data-category="visas">Visas</button>
-          <button class="faq-category" data-category="employment">
-            Employment
-          </button>
-        </div>
+<section class="faq-section">
 
-        <div class="faq-items" id="general">
+  <!-- INLINE CSS -->
+  <style>
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Find answers to the most common questions</p>
+    </div>
+
+    <div class="faq-content">
+
+      <div class="faq-categories">
+        <button class="faq-category active" data-category="general">General</button>
+        <button class="faq-category" data-category="applications">Applications</button>
+        <button class="faq-category" data-category="visas">Visas</button>
+        <button class="faq-category" data-category="employment">Employment</button>
+      </div>
+
+    <div class="faq-items" id="general">
           <div class="faq-item">
             <div class="faq-question">
               <h3>What is JobsNVisa?</h3>
@@ -329,8 +358,47 @@
           </div>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+
+  <!-- INLINE SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      /* CATEGORY SWITCH */
+      document.querySelectorAll('.faq-category').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const target = this.dataset.category;
+
+          document.querySelectorAll('.faq-category')
+            .forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          document.querySelectorAll('.faq-items')
+            .forEach(box => box.classList.toggle('hidden', box.id !== target));
+        });
+      });
+
+      /* FAQ TOGGLE */
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function () {
+          const item = this.closest('.faq-item');
+          const isOpen = item.classList.contains('active');
+
+          document.querySelectorAll('.faq-item')
+            .forEach(i => i.classList.remove('active'));
+
+          if (!isOpen) item.classList.add('active');
+        });
+      });
+
+    });
+  </script>
+
+</section>
+
+
 
   <!-- Contact Support -->
   <section class="contact-support">
