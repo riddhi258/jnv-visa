@@ -2561,7 +2561,7 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
 }
 .dropdown-menu a:hover {
   background: #f5f7fa;
-  color: var(--primary);
+  color: #22c55e;
 }
 
 /* Desktop hover */
