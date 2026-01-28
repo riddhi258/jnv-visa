@@ -2581,3 +2581,352 @@ max-width: 1200px; margin: auto; padding: 3rem 1rem;
   font-size: 12px;
   margin-left: 6px;
 }
+
+
+  /* ===============================
+   GP RECRUITMENT – COMMON
+================================ */
+.gp-hero,
+.gp-why,
+.gp-solutions,
+.cta-section {
+  padding: 80px 0;
+}
+
+.gp-offer,.gp-dual{
+  background: var(--bg-secondary);
+  padding: 80px 0;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.section-header p {
+  color: #64748b;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+.gp-hero {
+  background: var(--bg-secondary)
+  
+}
+
+.gp-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  padding: 40px 0;
+  justify-items: center;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  justify-items: center;
+  align-items: center;
+}
+
+.gp-hero h1 {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.gp-hero h2 {
+  font-size: 20px;
+  color: #22c55e;
+  margin: 12px 0 16px;
+}
+
+.gp-hero p {
+  font-size: 16px;
+  color: #475569;
+  max-width: 520px;
+}
+
+.hero-actions {
+  margin-top: 80px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-icon-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-icon-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+}
+
+/* ===============================
+   WHY SECTION
+================================ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.why-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+.why-card i {
+  font-size: 36px;
+  color: #22c55e;
+  margin-bottom: 16px;
+}
+
+.why-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.why-card p {
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* ===============================
+   OFFER LIST
+================================ */
+.offer-list {
+  max-width: 350px;
+  margin: auto;
+  display: grid;
+  gap: 14px;
+}
+
+.offer-list div {
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+.offer-list i {
+  color: #22c55e;
+  font-size: 18px;
+}
+
+/* ===============================
+   SOLUTIONS
+================================ */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.solution-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+}
+
+.solution-card i {
+  font-size: 34px;
+  color: #22c55e;
+  margin-bottom: 14px;
+}
+
+.solution-card h3 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.solution-card ul {
+  padding-left: 18px;
+}
+
+.solution-card ul li {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   EMPLOYER VS GP
+================================ */
+.dual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.dual-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 36px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.dual-card.highlight {
+  background: linear-gradient(145deg, #22c55e, #16a34a);
+  color: #fff;
+}
+
+.dual-card.highlight h3,
+.dual-card.highlight li {
+  color: #fff;
+}
+
+.dual-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.dual-card ul {
+  padding-left: 18px;
+}
+
+.dual-card li {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   CTA
+================================ */
+.cta-section {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.cta-content h2 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.cta-content p {
+  color: #ecfdf5;
+  margin: 14px 0 30px;
+  font-size: 16px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 991px) {
+  .gp-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 20px 0;
+    margin: 30px;
+  }
+
+  .hero-icon-box {
+    margin: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 765px) {
+  .gp-hero-grid {
+    gap: 30px;
+  }
+
+  .gp-offer .container,
+  .gp-why .container,
+  .gp-solutions .container,
+  .gp-dual .container {
+    padding: 0 20px;
+  }
+}
+
+
+
+[data-theme="dark"] .gp-hero,
+[data-theme="dark"] .gp-why,
+[data-theme="dark"] .gp-solutions,
+[data-theme="dark"] .gp-offer,
+[data-theme="dark"] .gp-dual {
+  color: #e5e7eb;
+}
+[data-theme="dark"] .gp-hero h1,
+[data-theme="dark"] .gp-hero h2,
+[data-theme="dark"] .gp-offer h2,
+[data-theme="dark"] .gp-why h2,
+[data-theme="dark"] .gp-solutions h2,
+[data-theme="dark"] .dual-card h3 {
+  color: #ffffff;
+}
+[data-theme="dark"] .gp-hero p,
+[data-theme="dark"] .why-card p,
+[data-theme="dark"] .solution-card li,
+[data-theme="dark"] .dual-card li,
+[data-theme="dark"] .section-header p {
+  color: #cbd5f5;
+}
+[data-theme="dark"] .badge {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+[data-theme="dark"] .why-card,
+[data-theme="dark"] .solution-card,
+[data-theme="dark"] .dual-card,
+[data-theme="dark"] .offer-list div {
+  background: #111827;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+[data-theme="dark"] .why-card i,
+[data-theme="dark"] .solution-card i,
+[data-theme="dark"] .offer-list i {
+  color: #4ade80;
+}
+[data-theme="dark"] .gp-hero img {
+  filter: brightness(0.85) contrast(1.05);
+}
