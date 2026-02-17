@@ -254,6 +254,10 @@ a:hover {
   font-size: 30px;
 }
 
+[data-theme="dark"] .section-header h2 {
+  color: #ffffff;
+}
+
 .section-header p {
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
