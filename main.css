@@ -460,20 +460,20 @@ a:hover {
 }
 /* Button */
 .card1-btn {
-  align-self: flex-start;
-  padding: 12px 22px;
-  margin-top: 12px;
-  background: linear-gradient(135deg, #1dc789, #8cc66c);
-  color: #fff;
+  display: inline-block;
+  padding: 10px 22px;
+  background: #45b75f;
+  color: #ffffff;
+  margin: 15px auto 0;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 14px;
   transition: all 0.3s ease;
-  display: inline-block;
+  font-size: 14px;
 }
 
 .card1-btn:hover {
-  background: linear-gradient(135deg, #5ddf7a, #90fea1);
+  background: #5ddf7a;
   transform: scale(1.05);
 }
 .migration-card img {
