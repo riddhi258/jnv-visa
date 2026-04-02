@@ -473,7 +473,7 @@ a:hover {
 }
 
 .card1-btn:hover {
-  color: #5ddf7a;
+  background-color: #5ddf7a;
   transform: scale(1.05);
 }
 
