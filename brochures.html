@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Shreyash Srivastva" />
+    <meta name="publisher" content="JobsNVisa" />
+    <link rel="icon" type="image/png/svg" href="favicon.svg" />
+    <link rel="shortcut icon" type="image/png/svg" href="favicon.svg" />
+    <meta name="copyright" content="JobsNVisa" />
+    <title>Jobs N Visa Brochure</title>
+    <style>
+        :root {
+            /* --- THEME COLORS --- */
+            --brand-green: #00c853; /* Vibrant Green */
+            --brand-green-glow: rgba(0, 200, 83, 0.4);
+            
+            /* Dark Mode Defaults */
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --page-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            --control-bg: rgba(0, 0, 0, 0.8);
+        }
+        @media print {
+    /* 1. Reset Body for Printing */
+    body, html { 
+        background: white !important; 
+        overflow: visible !important; 
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Hide all UI controls */
+    .controls, .theme-toggle, .nav-zone, .btn, #counter { 
+        display: none !important; 
+    }
+
+    /* 3. Flatten the "Book" structure */
+    #scaler { 
+        display: block !important;
+        transform: none !important; 
+        width: 100% !important; 
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    .book { 
+        display: block !important; 
+        perspective: none !important;
+    }
+
+    /* 4. Force each .page div to be its own PDF page */
+    .page {
+        position: relative !important;
+        display: block !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        transform: none !important; /* Removes the "flipped" rotation */
+        opacity: 1 !important;      /* Makes hidden pages visible */
+        page-break-after: always !important; 
+        box-shadow: none !important;
+    }
+
+    .page img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important; /* Prevents distortion */
+    }
+
+    /* 5. Remove browser-default headers/footers (Date, URL, etc) */
+    @page {
+        size: landscape;
+        margin: 0;
+    }
+}
+
+        [data-theme="light"] {
+            /* Light Mode Defaults */
+            --bg-color: #f0f7f4; /* Very subtle mint-white */
+            --text-color: #333333;
+            --page-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            --control-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.4s ease;
+            touch-action: manipulation; 
+        }
+
+        /* --- Click Navigation Zones (Invisible) --- */
+        .nav-zone {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 500;
+            cursor: pointer;
+        }
+        .nav-zone.left { left: 0; }
+        .nav-zone.right { right: 0; }
+        
+        /* Optional: Show a subtle arrow when hovering the sides on PC */
+        .nav-zone:hover {
+            background: linear-gradient(to right, rgba(0,200,83,0.05), transparent);
+        }
+        .nav-zone.right:hover {
+            background: linear-gradient(to left, rgba(0,200,83,0.05), transparent);
+        }
+
+        /* --- The Stage (Scaler) --- */
+        #scaler {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            flex-shrink: 0;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        /* --- The Book --- */
+        .book {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            perspective: 4000px;
+        }
+
+        /* --- The Pages --- */
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s ease 0.3s;
+            background-color: white;
+            box-shadow: var(--page-shadow);
+            border-radius: 4px; /* Slight rounded corners */
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            pointer-events: none;
+            image-rendering: -webkit-optimize-contrast;
+            border-radius: 4px;
+        }
+
+        .page.flipped {
+            transform: rotateY(-140deg);
+            opacity: 0; 
+            pointer-events: none;
+        }
+
+        /* Z-Index logic handled by JS, but defaults provided */
+        .page:nth-child(1) { z-index: 9; }
+        .page:nth-child(2) { z-index: 8; }
+        .page:nth-child(3) { z-index: 7; }
+        .page:nth-child(4) { z-index: 6; }
+        .page:nth-child(5) { z-index: 5; }
+        .page:nth-child(6) { z-index: 4; }
+        .page:nth-child(7) { z-index: 3; }
+        .page:nth-child(8) { z-index: 2; }
+        .page:nth-child(9) { z-index: 1; }
+
+        /* --- Creative Controls --- */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--control-bg);
+            padding: 12px 35px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: background 0.3s;
+        }
+
+        .btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--brand-green);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--brand-green);
+            color: white;
+            box-shadow: 0 0 15px var(--brand-green-glow);
+            transform: scale(1.1);
+        }
+
+        .btn:disabled {
+            border-color: #ccc;
+            color: #ccc;
+            background: transparent;
+            cursor: default;
+            box-shadow: none;
+            transform: none;
+        }
+
+        #counter {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+            user-select: none;
+            letter-spacing: 1px;
+        }
+
+        /* --- Styled Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: var(--brand-green); /* Always Green */
+            color: rgb(0, 0, 0); /* Always White Icon */
+            border: none;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.4rem;
+            z-index: 2000;
+            box-shadow: 0 4px 15px greenyellow;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15) rotate(-35deg);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="nav-zone left" onclick="changePage(-1)" title="Previous Page"></div>
+    <div class="nav-zone right" onclick="changePage(1)" title="Next Page"></div>
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="">
+        🌞
+    </button>
+
+    <div id="scaler">
+        <div class="book">
+            <div class="page"><img src="1.jpg" alt="Page 1"></div>
+            <div class="page"><img src="2.jpg" alt="Page 2"></div>
+            <div class="page"><img src="3.jpg" alt="Page 3"></div>
+            <div class="page"><img src="4.jpg" alt="Page 4"></div>
+            <div class="page"><img src="5.jpg" alt="Page 5"></div>
+            <div class="page"><img src="6.jpg" alt="Page 6"></div>
+            <div class="page"><img src="7.jpg" alt="Page 7"></div>
+            <div class="page"><img src="8.jpg" alt="Page 8"></div>
+            <div class="page"><img src="9.jpg" alt="Page 9"></div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn" id="prev" onclick="changePage(-1)">‹</button>
+        <span id="counter">1 / 9</span>
+        <button class="btn" id="next" onclick="changePage(1)">›</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 9; 
+        const pages = document.querySelectorAll('.page');
+        const counter = document.getElementById('counter');
+        const scaler = document.getElementById('scaler');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const toggleBtn = document.querySelector('.theme-toggle');
+
+        function updateUI() {
+            counter.innerText = `${currentPage} / ${totalPages}`;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+        }
+
+        function changePage(dir) {
+            const nextIdx = currentPage + dir;
+            if (nextIdx < 1 || nextIdx > totalPages) return;
+
+            if (dir > 0) {
+                pages[currentPage - 1].classList.add('flipped');
+            } else {
+                pages[currentPage - 2].classList.remove('flipped');
+            }
+
+            currentPage = nextIdx;
+            updateUI();
+        }
+
+        // --- Responsive Scaling ---
+        function resize() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const targetW = 1920;
+            const targetH = 1080;
+            const padding = 0.95; 
+
+            const scaleX = (windowWidth * padding) / targetW;
+            const scaleY = (windowHeight * padding) / targetH;
+            const scale = Math.min(scaleX, scaleY);
+
+            scaler.style.transform = `scale(${scale})`;
+        }
+
+        // --- Swipe Logic ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 50) changePage(1); 
+            if (touchEndX > touchStartX + 50) changePage(-1); 
+        });
+
+        // --- Theme Logic ---
+        function toggleTheme() {
+            const body = document.body;
+            const theme = body.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                toggleBtn.innerHTML = '🌞'; // Sun icon for when it's dark
+            } else {
+                body.setAttribute('data-theme', 'light');
+                toggleBtn.innerHTML = '⭐'; // Moon icon for when it's light
+            }
+        }
+
+        window.addEventListener('resize', resize);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") changePage(1);
+            if (e.key === "ArrowLeft") changePage(-1);
+        });
+
+        // Start
+        resize();
+        updateUI();
+    </script>
+</body>
+</html>

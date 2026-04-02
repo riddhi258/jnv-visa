@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Riddhi Upadhyay" />
+    <meta name="publisher" content="JobsNVisa" />
+    <meta name="copyright" content="JobsNVisa" />
+    <title>Help Centre - JobsNVisa</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="components.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <meta
+      name="description"
+      content="Visit the Help Centre at Jobs N Visa for assistance with job applications, visa processes, account management, and frequently asked questions. We're here to support you every step of the way."
+    />
+    <meta
+      name="keywords"
+      content="help centre, support, customer service, FAQs, visa assistance, job application help, account support, user guide, Jobs N Visa, work in Australia, troubleshooting"
+    />
+    <link rel="icon" type="image/png/svg" href="favicon.svg" />
+    <link rel="shortcut icon" type="image/png/svg" href="favicon.svg" />
+    <link canonical href="https://www.thejobsnvisa.com/help-center.html" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="index.html">
+            <img
+              src="dark.svg"
+              width="300"
+              height="auto"
+              alt="JobsNVisa Logo"
+              class="logo-image"
+            />
+          </a>
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+
+          <!-- SERVICES DROPDOWN -->
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle"> Services </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html">Recruiter Services</a></li>
+              <li><a href="employee.html">Employee Services</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="recruiter.html" class="nav-link">Recruiters</a>
+          </li>
+
+          <li>
+            <a href="healthcare.html" class="nav-link">Healthcare</a>
+          </li>
+
+          <li>
+            <a href="jobs.html" class="nav-link">Careers</a>
+          </li>
+
+          <li>
+            <a href="resouces.html" class="nav-link">Blogs</a>
+          </li>
+        </ul>
+        <div class="nav-controls">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Brochures</span>
+        </div>
+        <h1>Brochures</h1>
+        <p>Download our comprehensive brochures and resources</p>
+      </div>
+    </section>
+
+    <!-- Brochures Section -->
+    <section class="brochures-section">
+      <div class="container">
+        <div class="brochures-grid">
+          <div class="brochure-card group">
+            <div class="brochure-image">
+              <img src="1.jpg" alt="Brochure 1" />
+            </div>
+            <div class="brochure-content">
+              <h3>Brochure</h3>
+              <div class="brochure-footer">
+                <a href="brochure(1).pdf" class="download-btn" download>
+                  DOWNLOAD NOW
+                  <span class="arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .brochures-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+
+      .brochures-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .brochure-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.5s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brochure-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .brochure-image {
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+        background: #f0f0f0;
+      }
+
+      .brochure-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .brochure-card.group:hover .brochure-image img {
+        transform: scale(1.05);
+      }
+
+      .brochure-content {
+        padding: 25px;
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brochure-content h3 {
+        margin: 0 0 20px 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #163c3d;
+        line-height: 1.4;
+      }
+
+      .brochure-footer {
+        margin-top: auto;
+      }
+
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #6dc7d1;
+        text-decoration: none;
+        font-weight: 600;
+        transition: gap 0.3s ease;
+      }
+
+      .download-btn:hover {
+        gap: 12px;
+      }
+
+      .download-btn .arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .brochure-card.group:hover .download-btn .arrow {
+        transform: translateX(4px);
+      }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <h3>JobsNVisa</h3>
+              <p>Your gateway to career excellence in Australia</p>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/profile.php?id=61579092253323&sk=about"
+                class="social-link"
+                title="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://au.linkedin.com/company/the-jobs-n-visa-pty-ltd?trk=public_post_feed-actor-image"
+                class="social-link"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://www.youtube.com/@JobsNVisa" class="social-link"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://www.instagram.com/jobsnvisa/" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.x.com/thejobsnvisa" class="social-link"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-twitter-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+              <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+61387643335">+61 3 8764 3335</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@jobsnvisa.com.au">info@jobsnvisa.com.au</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sydney, Melbourne, Brisbane</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 JobsNVisa. All rights reserved.</p>
+            <p>Licensed Migration Agent | Registered Employment Services</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="darkmode.js"></script>
+    <script src="help-center.js"></script>
+  </body>
+</html>
