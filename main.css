@@ -467,7 +467,7 @@ a:hover {
   margin: 22px auto 0;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 14px;
+  border-radius: 10px;
   transition: all 0.3s ease;
   font-size: 14px;
 }
