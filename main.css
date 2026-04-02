@@ -473,7 +473,17 @@ a:hover {
 }
 
 .card1-btn:hover {
-  background: #5ddf7a;
+  color: #5ddf7a;
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .card1-btn {
+  background: #34d399;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .card1-btn:hover {
+  color: darkgreen;
   transform: scale(1.05);
 }
 .migration-card img {
